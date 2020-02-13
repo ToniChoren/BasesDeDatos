@@ -1,3 +1,4 @@
+
 1.  Mostrar el nombre, el continente y la población de todos los países.
 
 ```SQL
@@ -14,6 +15,9 @@ WHERE population >= 200000000
 ```
 
 3.  Dar el namey el PIB per cápita de los países con una populationde al menos 200 millones de dólares.
+    
+    AYUDA: Cómo calcular el PIB per cápita
+    El PIB per cápita es el PIB dividido por la población PIB / población
 
 ```SQL
 SELECT name, gdp/population
@@ -57,7 +61,7 @@ FROM world
 WHERE   area >3000000 OR population > 250000000
 ```
 
-8. Exclusivo OR (XOR). Muestre los países que son grandes por área (más de 3 millones) o grandes por población (más de 250 millones) pero no ambos. Mostrar nombre, población y área.
+8. Exclusivo OR(XOR). Muestre los países que son grandes por área (más de 3 millones) o grandes por población (más de 250 millones) pero no ambos. Mostrar nombre, población y área.
 
 - Australia tiene un área grande pero una población pequeña, debería incluirse .
 - Indonesia tiene una gran población pero un área pequeña, debería incluirse .
@@ -71,7 +75,7 @@ WHERE  area >3000000 XOR population > 250000000
 ~~~
 
 9.  Muestre el namey populationen millones y el PIB en miles de millones para los países de continent'América del Sur'. Use la función 
-    REDONDEAR para mostrar los valores con dos decimales.
+    `ROUND` para mostrar los valores con dos decimales.
 
 Para América del Sur, muestra la población en millones y el PIB en miles de millones, ambos con 2 decimales.
 Millones y miles de millones
@@ -97,7 +101,7 @@ WHERE gdp >= 1000000000000
      Cada una de las cadenas 'Grecia' y 'Atenas' tiene 6 caracteres.
 
 Muestre el nombre y la capital donde el nombre y la capital tienen el mismo número de caracteres.
-  - Puede usar la función `LONGITUD` para encontrar el número de caracteres en una cadena
+  - Puede usar la función `LENGTH` para encontrar el número de caracteres en una cadena
 
 Muestre los países que son grandes por área o grandes por población. Mostrar nombre, población y área.
 
@@ -110,8 +114,8 @@ SELECT name, capital
 12.  La capital de Suecia es Estocolmo. Ambas palabras comienzan con la letra 'S'.
 
 Muestra el nombre y la capital donde coinciden las primeras letras de cada uno. No incluya países donde el nombre y la capital sean la misma palabra.
-- Puede usar la función IZQUIERDA para aislar el primer carácter.
-- Puede usarlo <>como operador NO IGUAL .
+- Puede usar la función `LEFT` para aislar el primer carácter.
+- Puede usarlo <>como operador `NOT EQUALS`.
 
 ```SQL
 SELECT name,capital
