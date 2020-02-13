@@ -1,11 +1,11 @@
 
-1.  [Introducción](#introduccion)
-1.1  [Componentes del SQL](#Componentes-del-SQL)
-1.2  [Comandos](#Comandos)
-1.3  [Cláusulas](#Cláusulas)
-1.4  [Operadores Lógicos](#Operadores-Lógicos)
-1.5  [Operadores de Comparación](#Operadores-de-Comparación)
-1.6  [Funciones de Agregado](#Funciones-de-Agregado)
+1.   [Introducción](#introduccion) 
+1.1  [Componentes del SQL](#componentes-del-sql)
+1.2  [Comandos](#comandos)
+1.3  [Cláusulas](#clausulas)
+1.4  [Operadores Lógicos](#operadores-logicos)
+1.5  [Operadores de Comparación](#operadores-de-comparacion)
+1.6  [Funciones de Agregado](#funciones-de-agregado)
 
 
 
