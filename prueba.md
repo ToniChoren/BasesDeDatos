@@ -21,6 +21,4 @@ _Esto está también en cursiva._
 
 ####H4
 
->Se tenía que decir
-
->y se dijo.
+>Se tenía que decir y se dijo.
