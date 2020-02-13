@@ -1,4 +1,4 @@
-
+#INDICE
 1.   [Introducción](#introduccion) 
 1.1  [Componentes del SQL](#componentes-del-sql)
 1.2  [Comandos](#comandos)
