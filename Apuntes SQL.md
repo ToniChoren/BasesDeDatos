@@ -1,6 +1,6 @@
 # INDICE
-1.  [Introducción](#Introducción) 
-2.  [Componentes del SQL](#Componentes del SQL)
+1.  [Introducción](#introduccion)
+2.  [Componentes del SQL](#componentes-del-sql)
 3.  [Comandos](#comandos)
 4.  [Cláusulas](#clausulas)
 5.  [Operadores Lógicos](#operadores-logicos)
