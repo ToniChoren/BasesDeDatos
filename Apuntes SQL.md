@@ -1,19 +1,13 @@
-**1.  Introducción
-2.  Consultas de Selección
-3.  Criterios de Selección
-4.  Agrupamiento de Registros y Funciones Agregadas
-5.  Consultas  de Actualización
-6.  Tipos de Datos
-7.  SubConsultas
-8.  Consultas  y Referencias Cruzadas
-9.  Consultas  de Unión Interna
-10.  Consultas de Unión Externas
-11.  Estructuras de las Tablas
-12.  Consultas con Parámetros
-13.  Acceso  a las Bases de Datos Externas
-14.  Omitir los permisos de ejecución
-15.  La  Cláusula Procedure
-16.  Anexos**
+
+1.  [Introducción](#introduccion)
+1.1  [Componentes del SQL](#Componentes-del-SQL)
+1.2  [Comandos](#Comandos)
+1.3  [Cláusulas](#Cláusulas)
+1.4  [Operadores Lógicos](#Operadores-Lógicos)
+1.5  [Operadores de Comparación](#Operadores-de-Comparación)
+1.6  [Funciones de Agregado](#Funciones-de-Agregado)
+
+
 
 ### 1. Introducción
 
