@@ -5,9 +5,13 @@ WHERE alumnos IN ('Xián', 'Toni') AS 'Somos unos cracks en programación.';
 ```
 *Esto son apuntes.*
 
+**SQL**
+
+__Esto también está en negrita__
+
 ~Esto también son apuntes.~
 
-_Esto sí que son apuntes, lo demás son tonterías._
+_Esto está también en cursiva._
 
 #H1
 
