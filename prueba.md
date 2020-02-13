@@ -1,7 +1,7 @@
 ```SQL
 SELECT alumnos
 FROM DAM1
-WHERE alumnos IN ('Xián', 'Toni');
+WHERE alumnos IN ('Xián', 'Toni') AS 'Somos unos cracks en programación.';
 ```
 *Esto son apuntes.*
 
