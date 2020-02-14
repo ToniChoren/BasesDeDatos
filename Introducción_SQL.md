@@ -1,11 +1,12 @@
 # INDICE
- [1. Introducción](#1.-Introducción)
- [2. Componentes del SQL](#componentes-del-sql)
- [3. Comandos](#comandos)
- [4. Cláusulas](#clausulas)
- [5. Operadores Lógicos](#operadores-logicos)
- [6. Operadores de Comparación](#operadores-de-comparacion)
- [7. Funciones de Agregado](#funciones-de-agregado)
+
+1. [Introducción](#1.-Introducción)
+2. [Componentes del SQL](#componentes-del-sql)
+3. [Comandos](#comandos)
+4. [Cláusulas](#clausulas)
+5. [Operadores Lógicos](#operadores-logicos)
+- [Operadores de Comparación](#Operadores-de-Comparacion)
+- [Funciones de Agregado](#Funciones-de-Agregado)
 
 
 
@@ -130,7 +131,7 @@ valor de verdad si alguna de las dos es cierta.
 
 Negación  lógica. Devuelve el valor contrario de la expresión.
 
-#### 6 Operadores de Comparación
+#### 6 Operadores de Comparacion
 
 **Operador** / **Uso**
 
@@ -169,7 +170,7 @@ en la comparación de un modelo
 Utilizado  
 para especificar registros de una base de datos
 
-#### 7 Funciones de Agregado
+#### Funciones de Agregado
 
 Las  funciones de agregado se usan dentro de una cláusula  **SELECT**  
 en grupos de registros para devolver un único valor que se aplica a un  
