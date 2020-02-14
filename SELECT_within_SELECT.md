@@ -14,32 +14,33 @@ world
   
   world(name, continent, area, population, gdp)
   
-~~~
+~~~SQL
 SELECT name 
 FROM world
 WHERE population >
      (SELECT population 
       FROM world
-      WHERE name='Russia')
+      WHERE name='Russia');
 ~~~
 
 
 2. Mostrar los países de Europa con un PIB per cápita mayor que 'Reino Unido'.
     PIB per cápita
     El PIB per cápita es el pib / población
-~~~
+    
+~~~SQL
 SELECT name
 FROM world
   WHERE continent='Europe' AND gdp/population >
                                      (SELECT gdp/population 
                                       FROM world
-                                      WHERE name='United Kingdom')
+                                      WHERE name='United Kingdom');
 ~~~
 
 
 3. Enumere el nombre y el continente de los países de los continentes que contienen Argentina o Australia . Ordenar por nombre del país.
 
-~~~
+~~~SQL
 SELECT name, continent
 FROM world 
 WHERE continent IN  (
@@ -52,11 +53,11 @@ ORDER BY name;
 
 4. ¿Qué país tiene una población que es más que Canadá pero menos que Polonia? Mostrar el nombre y la población.
 
-~~~
+~~~SQL
 SELECT name, population
 FROM world 
 WHERE population > (SELECT population+1 FROM world WHERE name= 'Canada') AND population <
-                   (SELECT population-1 FROM world WHERE name= 'Poland')
+                   (SELECT population-1 FROM world WHERE name= 'Poland');
 
 ~~~
 
@@ -68,64 +69,63 @@ Muestra el nombre y la población de cada país en Europa. Mostrar la población
 Puede usar la función ROUND para eliminar los lugares decimales.
     Símbolo de porcentaje%
 Puede usar la función CONCAT para agregar el símbolo de porcentaje.
-~~~
-SELECT name, CONCAT(ROUND(
-100 * population / (SELECT population 
-                    FROM world 
-                    WHERE name= 'Germany'),0),'%')
+~~~SQL
+SELECT name, CONCAT(ROUND( 100 * population / (SELECT population 
+                                               FROM world 
+                                               WHERE name= 'Germany'),0),'%')
 FROM world 
-WHERE continent= 'Europe'
+WHERE continent= 'Europe';
 ~~~
 
 
 6. ¿Qué países tienen un PIB mayor que todos los países de Europa? [ Solo proporcione el nombre .] (Algunos países pueden tener valores de pib NULL)
 
-~~~
+~~~SQL
 SELECT name
 FROM world 
 WHERE  gdp > ALL (SELECT gdp 
                   FROM world 
-                  WHERE continent= 'Europe' AND gdp IS NOT NULL)
+                  WHERE continent= 'Europe' AND gdp IS NOT NULL);
 ~~~
 
 
 7. Encuentre el país más grande (por área) en cada continente, muestre el continente , el nombre y el área :
-~~~
+~~~SQL
 SELECT continent, name, area 
 FROM world x
 WHERE area >= ALL
     (SELECT area
      FROM world y
      WHERE x.continent= y.continent
-          AND area>0)
+          AND area>0);
 ~~~
 
 
 8. Enumere cada continente y el nombre del país que aparece primero alfabéticamente.
-~~~
+~~~SQL
 SELECT continent, name
 FROM world x
 WHERE  x.name <= ALL (SELECT name 
                       FROM world y 
-                      WHERE  x.continent = y.continent)
+                      WHERE  x.continent = y.continent);
 ~~~
 
 9. Encuentre los continentes donde todos los países tienen una población <= 25000000. Luego encuentre los nombres de los países asociados con estos continentes. Mostrar nombre , continente y población .
 
-~~~
+~~~SQL
 SELECT name, continent, population
 FROM world x
 WHERE 25000000 >= ALL(SELECT population FROM world y WHERE x.continent = y.continent AND
-y.population > 0) 
+y.population > 0);
 
 ~~~
 
 10. Algunos países tienen una población más de tres veces mayor que la de cualquiera de sus vecinos (en el mismo continente). Dar a los países y continentes.
 
-~~~
+~~~SQL
 SELECT name, continent
 FROM world x
 WHERE population > ALL  (SELECT population*3 FROM world y WHERE x.continent = y.continent AND
-y.name <> x.name) 
+y.name <> x.name);
 ~~~
 
