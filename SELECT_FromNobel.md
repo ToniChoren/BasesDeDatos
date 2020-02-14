@@ -11,11 +11,11 @@ nobel
   
 1. Cambie la consulta que se muestra para que muestre premios Nobel para 1950.
 
-~~~
+```
 SELECT yr, subjet, winner
 FROM nobel
 WHERE yr = 1950
-~~~
+```
 
 
 2. Muestra quién ganó el premio de literatura de 1962.
