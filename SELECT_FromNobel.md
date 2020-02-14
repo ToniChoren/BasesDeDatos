@@ -11,7 +11,7 @@ nobel
   
 1. Cambie la consulta que se muestra para que muestre premios Nobel para 1950.
 
-```
+```SQL
   SELECT yr, subjet, winner
   FROM nobel
   WHERE yr = 1950
@@ -20,7 +20,7 @@ nobel
 
 2. Muestra quién ganó el premio de literatura de 1962.
 
-```
+```SQL
   SELECT winner
   FROM nobel
   WHERE yr = 1960
@@ -30,7 +30,7 @@ nobel
 
 3. Muestra el año y el tema que le valió a 'Albert Einstein' su premio.
 
-```
+```SQL
   SELECT yr, subject
   FROM nobel
   WHERE winner =  'Albert Einstein' 
@@ -39,7 +39,7 @@ nobel
 
 4. Dé el nombre de los ganadores de 'Peace' desde el año 2000, incluido el 2000.
 
-```
+```SQL
   SELECT  winner
   FROM nobel
   WHERE subject = 'Peace' AND yr >= 2000;
@@ -48,7 +48,7 @@ nobel
 
 5. Muestre todos los detalles ( año , materia , ganador ) de los ganadores del Premio de Literatura de 1980 a 1989 inclusive.
 
-```
+```SQL
   SELECT yr,subject,winner
   FROM nobel
   WHERE subject = 'Literature'
@@ -63,7 +63,7 @@ nobel
 - Jimmy Carter
 - Barack Obama
 
-```
+```SQL
   SELECT yr, subjet, winner
   FROM nobel
   WHERE yr = 1950
@@ -72,7 +72,7 @@ nobel
 
 7. Mostrar a los ganadores con el nombre John
 
-```
+```SQL
   SELECT winner 
   FROM nobel
   WHERE winner LIKE 'John %';
@@ -80,7 +80,8 @@ nobel
 
 
 8. Muestre el año, la asignatura y el nombre de los ganadores de Física de 1980 junto con los ganadores de Química de 1984.
-```
+
+```SQL
   SELECT *
   FROM nobel
   WHERE (subject='physics' AND yr=1980) OR
@@ -89,7 +90,7 @@ nobel
 
 9. Mostrar el año, el tema y el nombre de los ganadores para 1980, excluyendo Química y Medicina
 
-```
+```SQL
   SELECT *
   FROM nobel
   WHERE yr=1980 AND
@@ -98,7 +99,7 @@ nobel
 
 10. Mostrar el año, el tema y el nombre de las personas que ganaron un premio de 'Medicina' en un año temprano (antes de 1910, sin incluir 1910) junto con los ganadores de un premio de 'Literatura' en un año posterior (después de 2004, incluido 2004)
 
-```
+```SQL
   SELECT *
   FROM nobel 
   WHERE (subject='Medicine' and yr <1910) OR
@@ -107,7 +108,7 @@ nobel
 
 11. Encuentra todos los detalles del premio ganado por PETER GRÜNBERG
 
-```
+```SQL
   SELECT *
   FROM nobel 
   WHERE winner in ('Peter Grünberg')
@@ -115,7 +116,7 @@ nobel
 
 12. Encuentre todos los detalles del premio ganado por EUGENE O'NEILL
 
-```
+```SQL
   SELECT *
   FROM nobel 
   WHERE winner in ('Eugene O''Neill')
@@ -123,7 +124,7 @@ nobel
 
 13. Enumere los ganadores, el año y el tema donde el ganador comienza con Sir . Mostrar el más reciente primero, luego por orden de nombre.
 
-```
+```SQL
   SELECT winner, yr, subject
   FROM nobel 
   WHERE winner LIKE 'Sir%'
@@ -134,7 +135,7 @@ nobel
 
 Muestre los ganadores y la asignatura de 1984 ordenados por asignatura y nombre del ganador; pero enumere Química y Física al final.
 
-```
+```SQL
   SELECT winner, subject
   FROM nobel
   WHERE yr=1984 
