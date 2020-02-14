@@ -1,4 +1,5 @@
 
+
 1.  Mostrar el nombre, el continente y la población de todos los países.
 
 ```SQL
