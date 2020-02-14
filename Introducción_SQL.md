@@ -4,9 +4,9 @@
 2. [Componentes del SQL](#componentes-del-sql)
 3. [Comandos](#comandos)
 4. [Cláusulas](#clausulas)
-5. [Operadores Lógicos](#Operadores-Logicos)
-- [Operadores de Comparación](#Operadores-de-Comparacion)
-- [Funciones de Agregado](#Funciones-de-Agregado)
+5. [Operadores Lógicos](#6Operadores-Logicos)
+6. [Operadores de Comparación](#Operadores-de-Comparacion)
+7. [Funciones de Agregado](#Funciones-de-Agregado)
 
 
 
