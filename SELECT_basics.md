@@ -1,3 +1,14 @@
+mundo
+|nombre|continente|	zona	|población|	pib|
+|---   |   ----  |  ---   |  ---    | ---|
+|Afganistán|	Asia|	652230|	25500100	|20343000000|
+|Albania	|Europa|	28748|	2831741|	12960000000|
+|Argelia|	África	|2381741|	37100000	|188681000000|
+|Andorra|	Europa|	468	78115|	3712000000|
+|Angola	|África	|1246700|	20609294|	100990000|
+|...|
+
+
 1. El ejemplo utiliza una cláusula `WHERE`  para mostrar la población de 'Francia'. 
 Tenga en cuenta que las cadenas (fragmentos de texto que son datos) deben estar entre 'comillas simples';
 
