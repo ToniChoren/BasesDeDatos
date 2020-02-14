@@ -44,7 +44,7 @@ WHERE area  > 1000000;
 ~~~
 
 
-5.¿Cuál es la población total de ('Estonia', 'Letonia', 'Lituania')
+5.¿Cuál es la población total de ('Estonia', 'Letonia', 'Lituania') 
 
 ~~~
 SELECT SUM(population)
