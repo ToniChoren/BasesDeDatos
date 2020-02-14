@@ -1,5 +1,5 @@
 # INDICE
-1.  [Introducción](#introduccion)
+1.  [Introducción](#1.-introduccion)
 2.  [Componentes del SQL](#componentes-del-sql)
 3.  [Comandos](#comandos)
 4.  [Cláusulas](#clausulas)
