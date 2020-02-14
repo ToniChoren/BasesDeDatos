@@ -35,7 +35,7 @@ Existen  dos tipos de comandos  **SQL**:
 -   Los DML que permiten generar consultas para ordenar, filtrar y extraer datos  
     de la base de datos.
 
-#### 3 Comandos DLL
+####  Comandos DLL
 
 **Comando**  **Descripción**
 
