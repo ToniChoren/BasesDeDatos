@@ -22,87 +22,87 @@ dept
 
 Por qué no podemos usar =
 Puede pensar que la frase dept = NULL funcionaría aquí, pero no funciona; puede usar la frase dept IS NULL
-~~~
+~~~SQL
 SELECT name
 FROM teacher
-WHERE dept IS NULL
+WHERE dept IS NULL;
 ~~~
 
 
 2. Tenga en cuenta que INNER JOIN extraña a los maestros sin departamento y a los departamentos sin maestro.
 
-~~~
+~~~SQL
 SELECT teacher.name, dept.name
  FROM teacher INNER JOIN dept
-           ON (teacher.dept=dept.id)
+           ON (teacher.dept=dept.id);
 ~~~
 
 3. Use una UNIÓN diferente para que todos los maestros estén en la lista.
 
-~~~
+~~~SQL
 SELECT teacher.name, dept.name
 FROM teacher 
-LEFT JOIN dept ON (teacher.dept=dept.id)
+LEFT JOIN dept ON (teacher.dept=dept.id);
 
 ~~~
 
 
 4. Use una UNIÓN diferente para que todos los departamentos estén listados.
 
-~~~
+~~~SQL
 SELECT teacher.name, dept.name
 FROM teacher 
-RIGHT JOIN dept ON (teacher.dept=dept.id)
+RIGHT JOIN dept ON (teacher.dept=dept.id);
 ~~~
 
 5. Use COALESCE para imprimir el número de móvil. Utilice el número '07986 444 2266' si no se proporciona ningún número. Mostrar nombre del profesor y número de teléfono móvil o '07986444 2266'
 
-~~~
+~~~SQL
 SELECT name, COALESCE(mobile,'07986 444 2266')
-FROM teacher
+FROM teacher;
 ~~~
 
 6. Use la función COALESCE y una IZQUIERDA PARA imprimir el nombre del maestro y el nombre del departamento. Use la cadena 'Ninguno' donde no hay departamento.
 
-~~~
+~~~SQL
 SELECT teacher.name, COALESCE(dept.name,'None')
 FROM teacher LEFT JOIN dept
-ON teacher.dept=dept.id
+ON teacher.dept=dept.id;
 ~~~
 
 7. Use COUNT para mostrar la cantidad de maestros y la cantidad de teléfonos móviles.
 
-~~~
+~~~SQL
 SELECT COUNT(teacher.name), COUNT(mobile)
-FROM teacher
+FROM teacher;
 ~~~
 
 8. Use COUNT y GROUP BY dept.name para mostrar cada departamento y la cantidad de personal. Use una UNIÓN DERECHA para asegurarse de que el departamento de Ingeniería esté en la lista.
 
 ~~~
-SELECT dept.name, COUNT(teacher.name)
+SELECT dept.name, COUNT(teacher.name)SQL
 FROM teacher RIGHT JOIN dept
 ON teacher.dept=dept.id
-GROUP BY dept.name
+GROUP BY dept.name;
 ~~~
 
 Usando CASE
 9. Use CASE para mostrar el nombre de cada maestro seguido de 'Sci' si el maestro está en el departamento 1 o 2 y 'Art' de lo contrario.
 
-~~~
-SELECT name, CASE WHEN dept IN (1,2) 
+~~~SQL
+SELECT name, CASE WHEN dept IN (1,2)
 THEN 'Sci'
 ELSE 'Art' END
-FROM teacher
+FROM teacher;
 ~~~
 
 10. Use CASE para mostrar el nombre de cada maestro seguido de 'Sci' si el maestro está en el departamento 1 o 2, muestre 'Art' si el departamento del maestro es 3 y 'Ninguno' de lo contrario.
 
-~~~
+~~~SQL
 SELECT name, CASE WHEN dept IN (1,2) 
 THEN 'Sci'
 WHEN dept = 3 
 THEN 'Art'
 ELSE 'None' END
-FROM teacher
+FROM teacher;
 ~~~
