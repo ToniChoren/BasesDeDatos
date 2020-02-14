@@ -4,7 +4,7 @@
 2. [Componentes del SQL](#componentes-del-sql)
 3. [Comandos](#comandos)
 4. [Cláusulas](#clausulas)
-5. [Operadores Lógicos](#operadores-logicos)
+5. [Operadores Lógicos](#Operadores-Logicos)
 - [Operadores de Comparación](#Operadores-de-Comparacion)
 - [Funciones de Agregado](#Funciones-de-Agregado)
 
@@ -113,7 +113,7 @@ para expresar la condición que debe satisfacer cada grupo
 Utilizada  
 para ordenar los registros seleccionados de acuerdo con un orden específico
 
-#### 5  Operadores Lógicos
+#### 5  Operadores Logicos
 
 **Operador**    **Uso**
 
