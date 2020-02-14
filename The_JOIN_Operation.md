@@ -108,7 +108,7 @@ SELECT teamname, COUNT(teamid)
  ORDER BY teamname
 ~~~
 
-10.Muestra el estadio y la cantidad de goles marcados en cada estadio.
+10. Muestra el estadio y la cantidad de goles marcados en cada estadio.
 
 ~~~
 SELECT game.stadium,COUNT(1)
@@ -116,7 +116,7 @@ SELECT game.stadium,COUNT(1)
 GROUP BY stadium
 ~~~
 
-11.Para cada partido que involucre 'POL', muestre el matchid, la fecha y el número de goles marcados.
+11. Para cada partido que involucre 'POL', muestre el matchid, la fecha y el número de goles marcados.
 
 ~~~
 SELECT matchid, mdate, COUNT(teamid)
@@ -125,7 +125,7 @@ SELECT matchid, mdate, COUNT(teamid)
 GROUP BY matchid, mdate;
 ~~~
 
-12.Muestra el estadio y la cantidad de goles marcados en cada estadio.
+12. Muestra el estadio y la cantidad de goles marcados en cada estadio.
 
 ~~~
 SELECT matchid, mdate, COUNT(teamid)
