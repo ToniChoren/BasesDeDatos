@@ -27,7 +27,7 @@ El  lenguaje  **SQL**  está compuesto por comandos, cláusulas, operadores
 y funciones de agregado. Estos elementos se combinan en las instrucciones para  
 crear, actualizar y manipular las bases de datos.
 
-#### 3  **Comandos**
+####   **Comandos**
 
 Existen  dos tipos de comandos  **SQL**:
 
@@ -35,7 +35,7 @@ Existen  dos tipos de comandos  **SQL**:
 -   Los DML que permiten generar consultas para ordenar, filtrar y extraer datos  
     de la base de datos.
 
-####  Comandos DLL
+#### 3-Comandos-DLL
 
 **Comando**  **Descripción**
 
