@@ -1,16 +1,16 @@
 # INDICE
 
-1. [Introducción](#1.-Introducción)
-2. [Componentes del SQL](#componentes-del-sql)
-3. [Comandos](#comandos)
-4. [Cláusulas](#clausulas)
-5. [Operadores Lógicos](#6Operadores-Logicos)
-6. [Operadores de Comparación](#Operadores-de-Comparacion)
-7. [Funciones de Agregado](#Funciones-de-Agregado)
+1. [Introducción](#1-Introduccion)
+2. [Componentes del SQL](#2-Componentes-del-SQL)
+3. [Comandos](#3-Comandos-DLL)
+4. [Cláusulas](#4-Clausulas)
+5. [Operadores Lógicos](#5-Operadores-Logicos)
+6. [Operadores de Comparación](#6-Operadores-de-Comparacion)
+7. [Funciones de Agregado](#7-Funciones-de-Agregado)
 
 
 
-### 1. Introducción
+### 1 Introduccion
 
 El  lenguaje de consulta estructurado (****SQL****)  
 es un lenguaje de base de datos normalizado, utilizado por el motor de base  
@@ -21,7 +21,7 @@ se puede utilizar con el método Execute para crear y manipular directamente
 las bases de datos Jet y crear consultas  **SQL**  
 de paso a través para manipular bases de datos remotas cliente – servidor.
 
-#### 2. Componentes del SQL
+#### 2 Componentes del SQL
 
 El  lenguaje  **SQL**  está compuesto por comandos, cláusulas, operadores  
 y funciones de agregado. Estos elementos se combinan en las instrucciones para  
@@ -35,7 +35,7 @@ Existen  dos tipos de comandos  **SQL**:
 -   Los DML que permiten generar consultas para ordenar, filtrar y extraer datos  
     de la base de datos.
 
-#### Comandos DLL
+#### 3 Comandos DLL
 
 **Comando**  **Descripción**
 
@@ -80,7 +80,7 @@ para modificar los valores de los campos y registros especificados
 Utilizado  
 para eliminar registros de una tabla de una base de datos
 
-#### 4 Cláusulas
+#### 4 Clausulas
 
 Las cláusulas son condiciones de modificación utilizadas para  
 definir los datos que desea seleccionar o manipular.
@@ -113,7 +113,7 @@ para expresar la condición que debe satisfacer cada grupo
 Utilizada  
 para ordenar los registros seleccionados de acuerdo con un orden específico
 
-#### 5  Operadores Logicos
+#### 5 Operadores Logicos
 
 **Operador**    **Uso**
 
@@ -170,7 +170,7 @@ en la comparación de un modelo
 Utilizado  
 para especificar registros de una base de datos
 
-#### Funciones de Agregado
+#### 7 Funciones de Agregado
 
 Las  funciones de agregado se usan dentro de una cláusula  **SELECT**  
 en grupos de registros para devolver un único valor que se aplica a un  
