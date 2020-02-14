@@ -140,5 +140,5 @@ Muestre los ganadores y la asignatura de 1984 ordenados por asignatura y nombre 
 SELECT winner, subject
 FROM nobel
 WHERE yr=1984 
-order by subject in ('Physics','Chemistry'),subject,winner
+order by subject IN ('Physics','Chemistry'),subject,winner
 ~~~
