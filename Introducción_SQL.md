@@ -37,48 +37,48 @@ Existen  dos tipos de comandos  **SQL**:
 
 #### 3 Comandos-DLL
 
-**Comando**  **Descripción**
+|**Comando** | **Descripción**|
+|---|---|
 
-
-**CREATE**
+|**CREATE**|
 
 Utilizado para crear nuevas tablas, campos  
-e índices.
+e índices.|
 
-**DROP**
+|**DROP**|
 
-Empleado para eliminar tablas e índices
+Empleado para eliminar tablas e índices|
 
-**ALTER**
+|**ALTER**|
 
 Utilizado para modificar las tablas agregando  
-campos o cambiando la definición de los campos.
+campos o cambiando la definición de los campos.|
 
 #### Comandos DML
 
-**Comando**  **Descripción**
-
-**SELECT**
+|**Comando** | **Descripción**|
+|---|---|
+|**SELECT**|
 
 Utilizado  
 para consultar registros de la base de datos que satisfagan un criterio  
-determinado
+determinado|
 
-**INSERT**
+|**INSERT**|
 
 Utilizado  
 para cargar lotes de datos en la base de datos en una única  
-operación.
+operación|
 
-**UPDATE**
-
-Utilizado  
-para modificar los valores de los campos y registros especificados
-
-**DELETE**
+|**UPDATE**|
 
 Utilizado  
-para eliminar registros de una tabla de una base de datos
+para modificar los valores de los campos y registros especificados|
+
+|**DELETE**|
+
+Utilizado  
+para eliminar registros de una tabla de una base de datos|
 
 #### 4 Clausulas
 
@@ -165,7 +165,7 @@ para especificar un intervalo de valores.
 Utilizado  
 en la comparación de un modelo
 
-**In**
+**IN**
 
 Utilizado  
 para especificar registros de una base de datos
