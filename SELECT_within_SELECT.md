@@ -89,74 +89,43 @@ WHERE  gdp > ALL (SELECT gdp
 ~~~
 
 
-7. Mostrar a los ganadores con el nombre John
-
+7. Encuentre el país más grande (por área) en cada continente, muestre el continente , el nombre y el área :
 ~~~
-SELECT winner 
-FROM nobel
-  WHERE winner LIKE 'John %';
-~~~
-
-
-8. Muestre el año, la asignatura y el nombre de los ganadores de Física de 1980 junto con los ganadores de Química de 1984.
-~~~
-SELECT *
-FROM nobel
-WHERE (subject='physics' AND yr=1980) OR
-      (subject='chemistry' AND yr=1984)
+SELECT continent, name, area 
+FROM world x
+WHERE area >= ALL
+    (SELECT area
+     FROM world y
+     WHERE x.continent= y.continent
+          AND area>0)
 ~~~
 
-9. Mostrar el año, el tema y el nombre de los ganadores para 1980, excluyendo Química y Medicina
 
+8. Enumere cada continente y el nombre del país que aparece primero alfabéticamente.
 ~~~
-SELECT *
-FROM nobel
-WHERE yr=1980 AND
-  subject NOT IN ('Chemistry','Medicine')
-
-~~~
-
-10. Mostrar el año, el tema y el nombre de las personas que ganaron un premio de 'Medicina' en un año temprano (antes de 1910, sin incluir 1910) junto con los ganadores de un premio de 'Literatura' en un año posterior (después de 2004, incluido 2004)
-
-~~~
-SELECT *
-FROM nobel 
-WHERE (subject='Medicine' and yr <1910) OR
-      (subject='Literature' AND yr>=2004)
+SELECT continent, name
+FROM world x
+WHERE  x.name <= ALL (SELECT name 
+                      FROM world y 
+                      WHERE  x.continent = y.continent)
 ~~~
 
-11. Encuentra todos los detalles del premio ganado por PETER GRÜNBERG
+9. Encuentre los continentes donde todos los países tienen una población <= 25000000. Luego encuentre los nombres de los países asociados con estos continentes. Mostrar nombre , continente y población .
 
 ~~~
-SELECT *
-FROM nobel 
-WHERE winner in ('Peter Grünberg')
-~~~
-
-12. Encuentre todos los detalles del premio ganado por EUGENE O'NEILL
+SELECT name, continent, population
+FROM world x
+WHERE 25000000 >= ALL(SELECT population FROM world y WHERE x.continent = y.continent AND
+y.population > 0) 
 
 ~~~
-SELECT *
-FROM nobel 
-WHERE winner in ('Eugene O''Neill')
-~~~
 
-13. Enumere los ganadores, el año y el tema donde el ganador comienza con Sir . Mostrar el más reciente primero, luego por orden de nombre.
+10. Algunos países tienen una población más de tres veces mayor que la de cualquiera de sus vecinos (en el mismo continente). Dar a los países y continentes.
 
 ~~~
-SELECT winner, yr, subject
-FROM nobel 
-WHERE winner LIKE 'Sir%'
-ORDER BY yr DESC, winner
+SELECT name, continent
+FROM world x
+WHERE population > ALL  (SELECT population*3 FROM world y WHERE x.continent = y.continent AND
+y.name <> x.name) 
 ~~~
 
-14. La expresión sujeto IN ('Química', 'Física') se puede usar como un valor: será 0 o 1 .
-
-Muestre los ganadores y la asignatura de 1984 ordenados por asignatura y nombre del ganador; pero enumere Química y Física al final.
-
-~~~
-SELECT winner, subject
-FROM nobel
-WHERE yr=1984 
-order by subject IN ('Physics','Chemistry'),subject,winner
-~~~
