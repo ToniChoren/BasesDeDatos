@@ -53,8 +53,6 @@ DQL, DML, DDL
 |UPDATE| sirve para modificar los valores de uno o varios registros|
 |DELETE| se utiliza para eliminar las finas de una tabla|
 
-
-
 |****DDL**** | |
 | --- | --- |
 |CREATE| Utilizado para crear nuevas tablas, campos e índices|
@@ -62,9 +60,21 @@ DQL, DML, DDL
 |ALTER| Utilizado para modificar las tablas agregando campos o cambiando la definición de los campos|
 
 
+|****DCL**** | |
+| --- | --- |
+|GRANT| permite otorgar permisos|
+|REVOKE| elimina los permisos que previamente se han concedido|
 
 
+|****TCL**** | |
+| --- | --- |
+|COMMIT| Finaliza la transacción y realiza los cambios hechos durante la transacción. Las transacción bloqueadas sobre la tabla           quedan liberadas.|
+|ROLLBACK| Rechaza la transacción y no aplica cambios, volviendo al estado antes de iniciarse la transacción|
 
+|****SCL**** |  |
+| --- | --- |
+|ALTER | Utilizado para modificar las tablas agregando campos o cambiando la definición de los campos|
+|SESSION| |
 
 
 
