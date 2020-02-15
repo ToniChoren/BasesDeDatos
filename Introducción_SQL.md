@@ -20,7 +20,7 @@
    
    9.5 [SUM and COUNT](#SUM-and-COUNT)
    
-   9.6 [The JOIN operation](#SThe-JOIN-operation)
+   9.6 [The JOIN operation](#The-JOIN-operation)
    
    9.7 [More JOIN operations](#More-JOIN-operations)
    
@@ -868,6 +868,8 @@ SELECT mdate,
 GROUP BY mdate,matchid,team1,team2;
 ~~~
 ---
+### More-JOIN-operations
+
   movie
 | id |	title |	yr |	director |	budget	| gross |
 | ---|  --- |   --- |   ---   |   ----   |  ----  |
