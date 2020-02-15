@@ -2,11 +2,11 @@
 
 1. [Introducción](#1-Introduccion)
 2. [Componentes del SQL](#2-Componentes-del-SQL)
-3. [Sublenguajes SQL](#3-Comandos-DLL)
+3. [Sublenguajes SQL](#3-Sublenguajes)
 4. [Cláusulas](#4-Clausulas)
 5. [Operadores Lógicos](#5-Operadores-Logicos)
 6. [Operadores de Comparación](#6-Operadores-de-Comparacion)
-7. [Funciones de Agregado](#7-Funciones-de-Agregado)
+7. [Funciones de Agregado](#7-Funciones-de-Agregado-o-reductoras)
 8. [Funciones](#8-Funciones)
 
 
@@ -137,7 +137,7 @@ Además todas ignoran valores *NULL*
 |**CONCAT**|concatena cadenas de texto o valores de un campo|
 |**ROUND**|redondea el número que se le pasa como primer parámetro. El segundo parámetro será el número de decimales |
 |**REPLACE**|reemplazar caracteres dentro de una cadena. Requiere tres argumentos|
-|**LENGTH**|devuelve el largo de la cadena |
+|**LENGTH**|devuelve el largo o número de caracteres de la cadena |
 |**LEFT**|devuelve una sub-cadena de la cadena que se le pasa como primer parámetro|
 |**AS**| renombrar un determinado campo, pudiendo usar el nuevo nombre en el resto de la consulta. Se suele utilizar en el `SELECT` para devolver el nombre del atributo que queramos y en el `FROM` cuando se trabaja con varias tablas.|
 |**DISTINCT**| se emplea en el `SELECT` antes de un atributo para indicar que omita los valores repetidos de este mismo|
