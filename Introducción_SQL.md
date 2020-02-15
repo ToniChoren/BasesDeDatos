@@ -12,9 +12,21 @@
    
    9.1 [SELECT basics](#SELECT-basics)
    
-   9.2 [SELECT from WORLD ](#9.2 SELECT-from WORLD)
+   9.2 [SELECT from Nobel ](#SELECT-from-Nobel )
    
-   9.3 [SELECT within SELECT ](#SELECT-within-SELECT )
+   9.3 [SELECT from WORLD ](#SELECT-from-WORLD )
+   
+   9.4 [SELECT within SELECT ](#SELECT-within-SELECT )
+   
+   9.5 [SUM and COUNT](#SUM-and-COUNT)
+   
+   9.6 [The JOIN operation](#SThe-JOIN-operation)
+   
+   9.7 [More JOIN operations](#More-JOIN-operations)
+   
+   9.8 [Using Null](#Using-Null)
+   
+   9.8 [Self join](#Self-join )
 
 
 
@@ -192,7 +204,7 @@ FROM world
 WHERE area BETWEEN 200000 AND 250000
 ```
 ---
-### 9.2 SELECT from WORLD 
+### SELECT from WORLD 
 
 mundo
 |nombre|continente|	zona	|población|	pib|
@@ -344,6 +356,152 @@ WHERE name LIKE 'B%'
   AND name NOT LIKE '%a%'
 ```
 ---
+### SELECT from WORLD
+
+nobel
+| yr	| subject |	winner |
+ |--- | ---- | -------- |     
+| 1960	| Chemistry|		Willard F. Libby | 
+| 1960	| Literatura| Saint-John Perse |
+| 1960	| Medicine|	Sir Frank Macfarlane Burnet |
+| 1960	| Medicine|	Medicine	Peter Madawar |  
+
+
+  
+1. Cambie la consulta que se muestra para que muestre premios Nobel para 1950.
+
+```SQL
+  SELECT yr, subjet, winner
+  FROM nobel
+  WHERE yr = 1950
+```
+
+
+2. Muestra quién ganó el premio de literatura de 1962.
+
+```SQL
+  SELECT winner
+  FROM nobel
+  WHERE yr = 1960
+   AND subject = 'Physics'
+```
+
+
+3. Muestra el año y el tema que le valió a 'Albert Einstein' su premio.
+
+```SQL
+  SELECT yr, subject
+  FROM nobel
+  WHERE winner =  'Albert Einstein' 
+```
+
+
+4. Dé el nombre de los ganadores de 'Peace' desde el año 2000, incluido el 2000.
+
+```SQL
+  SELECT  winner
+  FROM nobel
+  WHERE subject = 'Peace' AND yr >= 2000;
+```
+
+
+5. Muestre todos los detalles ( año , materia , ganador ) de los ganadores del Premio de Literatura de 1980 a 1989 inclusive.
+
+```SQL
+  SELECT yr,subject,winner
+  FROM nobel
+  WHERE subject = 'Literature'
+   AND yr BETWEEN 1980 AND 1989
+```
+
+
+6. Mostrar todos los detalles de los ganadores presidenciales:
+
+- Theodore Roosevelt
+- Woodrow Wilson
+- Jimmy Carter
+- Barack Obama
+
+```SQL
+  SELECT yr, subjet, winner
+  FROM nobel
+  WHERE yr = 1950
+```
+
+
+7. Mostrar a los ganadores con el nombre John
+
+```SQL
+  SELECT winner 
+  FROM nobel
+  WHERE winner LIKE 'John %';
+```
+
+
+8. Muestre el año, la asignatura y el nombre de los ganadores de Física de 1980 junto con los ganadores de Química de 1984.
+
+```SQL
+  SELECT *
+  FROM nobel
+  WHERE (subject='physics' AND yr=1980) OR
+        (subject='chemistry' AND yr=1984)
+```
+
+9. Mostrar el año, el tema y el nombre de los ganadores para 1980, excluyendo Química y Medicina
+
+```SQL
+  SELECT *
+  FROM nobel
+  WHERE yr=1980 AND
+    subject NOT IN ('Chemistry','Medicine')
+```
+
+10. Mostrar el año, el tema y el nombre de las personas que ganaron un premio de 'Medicina' en un año temprano (antes de 1910, sin incluir 1910) junto con los ganadores de un premio de 'Literatura' en un año posterior (después de 2004, incluido 2004)
+
+```SQL
+  SELECT *
+  FROM nobel 
+  WHERE (subject='Medicine' and yr <1910) OR
+        (subject='Literature' AND yr>=2004)
+```
+
+11. Encuentra todos los detalles del premio ganado por PETER GRÜNBERG
+
+```SQL
+  SELECT *
+  FROM nobel 
+  WHERE winner in ('Peter Grünberg')
+```
+
+12. Encuentre todos los detalles del premio ganado por EUGENE O'NEILL
+
+```SQL
+  SELECT *
+  FROM nobel 
+  WHERE winner in ('Eugene O''Neill')
+```
+
+13. Enumere los ganadores, el año y el tema donde el ganador comienza con Sir . Mostrar el más reciente primero, luego por orden de nombre.
+
+```SQL
+  SELECT winner, yr, subject
+  FROM nobel 
+  WHERE winner LIKE 'Sir%'
+  ORDER BY yr DESC, winner
+```
+
+14. La expresión sujeto IN ('Química', 'Física') se puede usar como un valor: será 0 o 1 .
+
+Muestre los ganadores y la asignatura de 1984 ordenados por asignatura y nombre del ganador; pero enumere Química y Física al final.
+
+```SQL
+  SELECT winner, subject
+  FROM nobel
+  WHERE yr=1984 
+  order by subject IN ('Physics','Chemistry'),subject,winner
+```
+
+---
 ### SELECT within SELECT 
 
 
@@ -476,4 +634,607 @@ FROM world x
 WHERE population > ALL  (SELECT population*3 FROM world y WHERE x.continent = y.continent AND
 y.name <> x.name);
 ~~~
+---
+### SUM and COUNT
 
+
+world
+|name	| continent |	area | population |	gdp |
+| --- | ---- | -------- |   --------| ----- |  
+| Afghanistan	| Asia|		652230 | 25500100    | 20343000000 |
+| Albania	| Europe| 28748 | 25500100    | 20343000000 |
+| Algeria	| Africa|2381741 | 37100000    | 188681000000 |
+| Andorra	| Europe|468 | 78115    | 3712000000 |
+| Angola	| Africa|	1246700 |   20609294    | 100990000000 |
+| ... |
+
+  
+1. Mostrar la población total del mundo.
+     
+~~~SQL
+SELECT SUM(population)
+FROM world;
+~~~
+
+
+2. Enumere todos los continentes, solo una vez cada uno.
+    
+~~~SQL
+SELECT DISTINCT(continent)
+FROM world;
+~~~
+
+
+3. Dar el GDP total de África
+
+~~~SQL
+SELECT SUM(gdp)
+FROM world
+WHERE continent= 'Africa';
+~~~
+
+
+4. ¿Cuántos países tienen un área de al menos 1000000?
+
+~~~SQL
+SELECT COUNT(name)
+FROM world
+WHERE area  > 1000000;
+~~~
+
+
+5.¿Cuál es la población total de ('Estonia', 'Letonia', 'Lituania') 
+
+~~~SQL
+SELECT SUM(population)
+FROM world
+WHERE name IN   ('Estonia', 'Latvia', 'Lithuania');
+~~~
+
+Usando GROUP BY y HAVING
+6. Para cada continente, muestre el continente y el número de países.
+
+~~~SQL
+SELECT continent, COUNT(name)
+FROM world
+GROUP BY(continent);
+~~~
+
+
+7. Para cada continente, muestre el continente y el número de países con poblaciones de al menos 10 millones.
+~~~SQL
+SELECT continent, COUNT(name)
+FROM world
+WHERE population >= 10000000
+GROUP BY(continent);
+~~~
+
+
+8. Enumere los continentes que tienen una población total de al menos 100 millones.
+~~~SQL
+SELECT continent
+FROM world
+GROUP BY continent
+HAVING SUM(population)>= 100000000;
+~~~
+---
+### The JOIN operation
+
+game
+|id	| mdate |	stadium | team1 |	team2 |
+| --- | ---- | -------- |   --------| ----- |  
+| 1001	| 8 June 2012|		National Stadium, Warsaw | POL    | GRE |
+| 1002	| 8 June 2012| Stadion Miejski (Wroclaw) | RUS    | CZE |
+| 1003	| 12 June 2012| Stadion Miejski (Wroclaw) | GRE    | CZE |
+| 1004	| 12 June 2012| National Stadium, Warsaw | POL    | RUS |
+| ... |
+
+
+
+goal
+|matchid|	teamid	|player	| gtime |
+| ----  | -----   | ---   | ---- |
+|1001|	POL |	Robert Lewandowski|	17|
+|1001	|GRE	|Dimitris Salpingidis|	51|
+|1002|	RUS|	Alan Dzagoev	|15|
+|1002|	RUS	|Roman Pavlyuchenko|	82|
+
+
+eteam
+|id	|teamname	|coach|
+|---|---|---|
+|POL|	Poland|	Franciszek| Smuda|
+|RUS|	Russia|	Dick |Advocaat|
+|CZE|	Czech| Republic|	Michal Bilek|
+|GRE|	Greece|	Fernando Santos|
+...
+
+
+1. El primer ejemplo muestra el gol marcado por un jugador con el apellido 'Bender'. El *dice que enumere todas las columnas de la tabla, una forma más corta de decirmatchid, teamid, player, gtime
+
+Modifíquelo para mostrar el matchid y el nombre del jugador para todos los goles marcados por Alemania. Para identificar jugadores alemanes, verifique: teamid = 'GER'
+
+~~~SQL
+SELECT goal.matchid, goal.player
+FROM goal  
+  WHERE teamid = 'GER';
+~~~
+
+2. De la consulta anterior puedes ver que Lars Bender anotó un gol en el juego 1012. Ahora queremos saber qué equipos estaban jugando en ese partido.
+
+Observe en el que la columna matchiden la goaltabla corresponde a la idcolumna en la gametabla. Podemos buscar información sobre el juego 1012 al encontrar esa fila en la tabla de juegos .
+
+Mostrar id, estadio, equipo1, equipo2 solo para el juego 1012
+
+~~~SQL
+SELECT game.id, game.stadium, game.team1, game.team2
+FROM game
+WHERE id = '1012';
+~~~
+
+3. Modifíquelo para mostrar el jugador, teamid, estadio y mdate para cada gol alemán.
+
+~~~SQL
+SELECT goal.player, goal.teamid, game.stadium, game.mdate
+  FROM game JOIN goal ON (id=matchid)
+WHERE teamid= 'Ger';
+~~~
+4. Muestra al equipo1, al equipo2 y al jugador por cada gol marcado por un jugador llamado Mario player LIKE 'Mario%'
+
+~~~SQL
+SELECT  game.team1, game.team2,  goal.player
+FROM game JOIN goal ON (id=matchid)
+WHERE goal.player LIKE 'Mario%';
+~~~
+
+5. Mostrar player, teamid, coach, gtimepara todos los goles marcados en los primeros 10 minutosgtime<=10
+
+~~~SQL
+SELECT player, teamid, coach, gtime
+  FROM goal JOIN eteam ON (teamid=id)
+ WHERE gtime<=10;
+
+~~~
+
+6. Enumere las fechas de los partidos y el nombre del equipo en el que 'Fernando Santos' fue el entrenador del equipo1.
+
+~~~SQL
+SELECT game.mdate, eteam.teamname
+  FROM game JOIN eteam ON (team1=eteam.id)
+ WHERE coach ='Fernando Santos';
+~~~
+
+7. Enumere al jugador por cada gol marcado en un juego donde el estadio fue 'Estadio Nacional, Varsovia'
+
+~~~SQL
+SELECT player
+  FROM goal JOIN game ON (id=matchid)
+ WHERE stadium = 'National Stadium, Warsaw';
+~~~
+
+
+8. En su lugar, muestre el nombre de todos los jugadores que marcaron un gol contra Alemania.
+
+~~~SQL
+SELECT DISTINCT goal.player
+  FROM game JOIN goal ON matchid = id 
+    WHERE (team1='GER' OR team2='GER') AND teamid <> 'GER';
+~~~
+
+
+9. Muestra el nombre del equipo y el número total de goles marcados.
+
+~~~SQL
+SELECT teamname, COUNT(teamid)
+  FROM eteam JOIN goal ON id=teamid
+ ORDER BY teamname;
+~~~
+
+10. Muestra el estadio y la cantidad de goles marcados en cada estadio.
+
+~~~SQL
+SELECT game.stadium,COUNT(1)
+  FROM goal JOIN game ON id=matchid
+GROUP BY stadium;
+~~~
+
+11. Para cada partido que involucre 'POL', muestre el matchid, la fecha y el número de goles marcados.
+
+~~~SQL
+SELECT matchid, mdate, COUNT(teamid)
+  FROM game JOIN goal ON matchid = id 
+ WHERE (team1 = 'POL' OR team2 = 'POL')
+GROUP BY matchid, mdate;
+~~~
+
+12. Muestra el estadio y la cantidad de goles marcados en cada estadio.
+
+~~~SQL
+SELECT matchid, mdate, COUNT(teamid)
+  FROM game JOIN goal ON matchid = id 
+ WHERE (teamid= 'GER')
+GROUP BY matchid, mdate;
+~~~
+
+13. Enumere cada partido con los goles marcados por cada equipo como se muestra. Esto usará " CASO CUANDO " que no se ha explicado en ningún ejercicio anterior.
+
+~~~SQL
+SELECT mdate,
+  team1,
+  SUM(CASE WHEN teamid=team1 THEN 1 ELSE 0 END) score1,
+  team2,
+  SUM(CASE WHEN teamid=team2 THEN 1 ELSE 0 END) score2
+  FROM game LEFT JOIN goal ON matchid = id
+GROUP BY mdate,matchid,team1,team2;
+~~~
+---
+ ### More JOIN operations
+ 
+  movie
+| id |	title |	yr |	director |	budget	| gross |
+| ---|  --- |   --- |   ---   |   ----   |  ----  |
+
+
+actor
+|id	|name|
+|  ---|  --- |
+
+
+casting
+| movieid	| actorid |	ord |
+|--- | --- | --- |
+
+
+1. Listar las películas donde está el año 1962 [Show id , title ]
+~~~
+SELECT id, title
+ FROM movie
+ WHERE yr=1962
+~~~
+
+2. Dar año de 'Ciudadano Kane'.
+~~~
+SELECT movie.yr
+FROM movie
+WHERE movie.title = 'Citizen Kane';
+~~~
+
+3. Enumere todas las películas de Star Trek, incluya la identificación , el título y el año (todas estas películas incluyen las 
+   palabras Star Trek en el título). Ordenar resultados por año.
+~~~
+SELECT id, title, yr
+FROM movie
+ WHERE title LIKE 'Star Trek%'
+ORDER BY yr ASC
+~~~
+
+4. ¿Qué número de identificación tiene el actor 'Glenn Close'?
+~~~
+SELECT actor.id
+FROM  actor
+ WHERE  name = 'Glenn Close';
+~~~
+
+5. ¿Cuál es el id de la película 'Casablanca'
+~~~
+SELECT movie.id
+FROM  movie
+WHERE  movie.title = 'Casablanca';
+~~~
+
+6. Obtenga la lista de actores de 'Casablanca'.
+
+¿Qué es una lista de reparto?
+Use movieid = 11768 , (o el valor que obtuvo de la pregunta anterior)
+~~~
+SELECT actor.name
+FROM  actor JOIN casting ON actor.id = casting.actorid
+WHERE  casting.movieid = (  
+                   SELECT movie.id
+                   FROM   movie
+                   WHERE  movie.title ='Casablanca');
+~~~
+
+7. Obtenga la lista de actores de la película 'Alien'
+~~~
+SELECT actor.name
+FROM  movie  JOIN casting  ON movie.id = casting.movieid JOIN
+      actor ON actor.id = casting.actorid
+WHERE movie.title = 'Alien'
+~~~
+
+8. Enumere las películas en las que ha aparecido 'Harrison Ford'
+~~~
+SELECT movie.title
+FROM  movie JOIN casting ON movie.id = casting.movieid 
+            JOIN actor ON actor.id = casting.actorid
+WHERE actor.name =  'Harrison Ford';
+~~~
+
+9. Enumere las películas donde ha aparecido 'Harrison Ford', pero no en el papel protagonista. [Nota: el campo ord del casting da 
+   la posición del actor. Si ord = 1, entonces este actor está en el papel protagonista]
+~~~
+SELECT movie.title
+FROM  movie, casting, actor
+WHERE actor.name  =  'Harrison Ford' 
+    AND movie.id = movieid
+    AND actor.id = actorid 
+    AND ord <> 1 ;
+~~~
+
+10. Enumere las películas junto con la estrella principal de todas las películas de 1962.
+~~~
+SELECT movie.title, actor.name
+FROM  movie JOIN casting ON movie.id = casting.movieid 
+            JOIN actor ON actor.id = casting.actorid
+WHERE movie.yr = 1962 
+AND casting.ord = 1;
+~~~
+
+11. Cuáles fueron los años más ocupados para 'Rock Hudson', muestran el año y la cantidad de películas que hizo cada año durante 
+    cualquier año en el que hizo más de 2 películas.
+~~~
+SELECT movie.yr, COUNT(movie.title) 
+FROM
+  movie JOIN casting ON movie.id= casting.movieid
+        JOIN actor   ON actor.id= casting.actorid
+WHERE actor.name='Rock Hudson'
+GROUP BY movie.yr 
+HAVING COUNT(*) > 2
+~~~
+
+12. Liste el título de la película y el actor principal de todas las películas en las que 'Julie Andrews' jugó.
+~~~
+SELECT movie.title, actor.name 
+FROM  movie JOIN casting ON movie.id= casting.movieid
+            JOIN actor   ON actor.id= casting.actorid
+WHERE casting.ord = 1 AND movie.id IN (
+  SELECT casting.movieid  
+  FROM actor JOIN casting ON actor.id = casting.actorid
+  WHERE actor.name='Julie Andrews');
+~~~
+
+13. Obtenga una lista, en orden alfabético, de los actores que han tenido al menos 15 papeles protagonistas .
+~~~
+SELECT name
+    FROM casting JOIN actor
+      ON  actorid = actor.id
+    WHERE ord=1
+    GROUP BY name
+    HAVING COUNT(movieid)>=15
+~~~
+
+
+14. Enumere las películas lanzadas en el año 1978 ordenadas por el número de actores en el elenco, luego por título.
+~~~
+  SELECT title, COUNT(actorid)
+  FROM casting,movie                
+  WHERE yr=1978
+        AND movieid=movie.id
+  GROUP BY title
+  ORDER BY 2 DESC,1 ASC
+
+~~~
+
+15. Lista de todas las personas que han trabajado con 'Art Garfunkel'.
+~~~
+SELECT DISTINCT d.name
+FROM actor d JOIN casting a ON (a.actorid=d.id)
+   JOIN casting b on (a.movieid=b.movieid)
+   JOIN actor c on (b.actorid=c.id 
+                and c.name='Art Garfunkel')
+  WHERE d.id!=c.id
+~~~
+---
+###  Using Null
+
+teacher
+| id	| dept	| name |	phone |	mobile |
+|---|---|---|---|---|
+|101	|1	|Shrivell	|2753|	07986 |555 |1234|
+|102|	1|	Throd|	2754|	07122 |555| 1920|
+|103	|1	| Splint	| 2293 |	
+| 104| 	|	Spiregrain|	3287	|
+|105	|  2| Cutflower |	3212	| 07996 555 6574|
+|106|		|Deadyawn|	3345|	     |
+|...|
+
+dept
+|id	| name|
+|--- |--- |
+|1	|Computing|
+|2	|Design|
+|3	|Engineering|
+|...|
+
+
+1. Enumere los maestros que tienen NULL para su departamento.
+
+Por qué no podemos usar =
+Puede pensar que la frase dept = NULL funcionaría aquí, pero no funciona; puede usar la frase dept IS NULL
+~~~SQL
+SELECT name
+FROM teacher
+WHERE dept IS NULL;
+~~~
+
+
+2. Tenga en cuenta que INNER JOIN extraña a los maestros sin departamento y a los departamentos sin maestro.
+
+~~~SQL
+SELECT teacher.name, dept.name
+ FROM teacher INNER JOIN dept
+           ON (teacher.dept=dept.id);
+~~~
+
+3. Use una UNIÓN diferente para que todos los maestros estén en la lista.
+
+~~~SQL
+SELECT teacher.name, dept.name
+FROM teacher 
+LEFT JOIN dept ON (teacher.dept=dept.id);
+
+~~~
+
+
+4. Use una UNIÓN diferente para que todos los departamentos estén listados.
+
+~~~SQL
+SELECT teacher.name, dept.name
+FROM teacher 
+RIGHT JOIN dept ON (teacher.dept=dept.id);
+~~~
+
+5. Use COALESCE para imprimir el número de móvil. Utilice el número '07986 444 2266' si no se proporciona ningún número. Mostrar nombre del profesor y número de teléfono móvil o '07986444 2266'
+
+~~~SQL
+SELECT name, COALESCE(mobile,'07986 444 2266')
+FROM teacher;
+~~~
+
+6. Use la función COALESCE y una IZQUIERDA PARA imprimir el nombre del maestro y el nombre del departamento. Use la cadena 'Ninguno' donde no hay departamento.
+
+~~~SQL
+SELECT teacher.name, COALESCE(dept.name,'None')
+FROM teacher LEFT JOIN dept
+ON teacher.dept=dept.id;
+~~~
+
+7. Use COUNT para mostrar la cantidad de maestros y la cantidad de teléfonos móviles.
+
+~~~SQL
+SELECT COUNT(teacher.name), COUNT(mobile)
+FROM teacher;
+~~~
+
+8. Use COUNT y GROUP BY dept.name para mostrar cada departamento y la cantidad de personal. Use una UNIÓN DERECHA para asegurarse de que el departamento de Ingeniería esté en la lista.
+
+~~~
+SELECT dept.name, COUNT(teacher.name)SQL
+FROM teacher RIGHT JOIN dept
+ON teacher.dept=dept.id
+GROUP BY dept.name;
+~~~
+
+Usando CASE
+9. Use CASE para mostrar el nombre de cada maestro seguido de 'Sci' si el maestro está en el departamento 1 o 2 y 'Art' de lo contrario.
+
+~~~SQL
+SELECT name, CASE WHEN dept IN (1,2)
+THEN 'Sci'
+ELSE 'Art' END
+FROM teacher;
+~~~
+
+10. Use CASE para mostrar el nombre de cada maestro seguido de 'Sci' si el maestro está en el departamento 1 o 2, muestre 'Art' si el departamento del maestro es 3 y 'Ninguno' de lo contrario.
+
+~~~SQL
+SELECT name, CASE WHEN dept IN (1,2) 
+THEN 'Sci'
+WHEN dept = 3 
+THEN 'Art'
+ELSE 'None' END
+FROM teacher;
+~~~
+---
+### Self join 
+
+|stops|
+| --- |
+|id|
+|name|
+
+
+|route|
+| --- |
+|num|
+|company|
+|pos|
+|stop|
+
+
+1. Cuántas paradas hay en la base de datos.
+
+~~~SQL
+SELECT COUNT(*) 
+FROM stops;
+~~~
+
+2. Encuentra el valor de id para la parada 'Craiglockhart'
+
+~~~SQL
+SELECT id 
+FROM stops 
+WHERE name='Craiglockhart';
+~~~
+
+3. Dé la identificación y el nombre de las paradas en el servicio '4' 'LRT'.
+
+~~~SQL
+SELECT id, name FROM stops, route
+  WHERE id=stop
+    AND company='LRT'
+    AND num='4';
+~~~
+
+4. La consulta que se muestra proporciona el número de rutas que visitan London Road (149) o Craiglockhart (53). Ejecute la consulta y observe que los dos servicios que vinculan estas paradas tienen un recuento de 2. Agregue una cláusula HAVING para restringir la salida a estas dos rutas.
+
+~~~SQL
+SELECT company, num, COUNT(*)
+FROM route WHERE stop=149 OR stop=53
+GROUP BY company, num
+HAVING COUNT(*)=2;
+~~~
+
+5 Ejecute la unión automática que se muestra y observe que b.stop le ofrece todos los lugares a los que puede llegar desde Craiglockhart, sin cambiar las rutas. Cambie la consulta para que muestre los servicios de Craiglockhart a London Road.
+
+~~~SQL
+SELECT a.company, a.num, a.stop, b.stop
+FROM route a JOIN route b ON
+  (a.company=b.company AND a.num=b.num)
+WHERE a.stop = 53 AND b.stop=149;
+~~~
+
+6. La consulta que se muestra es similar a la anterior, sin embargo, al unir dos copias de la tabla de paradas podemos referirnos a las paradas por nombre en lugar de por número. Cambie la consulta para que se muestren los servicios entre 'Craiglockhart' y 'London Road'. Si estás cansado de estos lugares, prueba 'Fairmilehead' contra 'Tollcross'
+
+~~~SQL
+SELECT a.company, a.num, stopa.name, stopb.name
+FROM route a JOIN route b ON
+  (a.company=b.company AND a.num=b.num)
+  JOIN stops stopa ON (a.stop=stopa.id)
+  JOIN stops stopb ON (b.stop=stopb.id)
+WHERE stopa.name='Craiglockhart'
+  AND stopb.name='London Road';
+~~~
+
+7. Dé una lista de todos los servicios que conectan las paradas 115 y 137 ('Haymarket' y 'Leith')
+
+~~~SQL
+SELECT DISTINCT R1.company, R1.num
+FROM route R1, route R2
+WHERE R1.num=R2.num AND R1.company=R2.company
+    AND R1.stop=115 AND R2.stop=137
+~~~
+
+8. Dé una lista de los servicios que conectan las paradas 'Craiglockhart' y 'Tollcross'
+~~~SQL
+SELECT R1.company, R1.num
+FROM route R1, route R2, stops S1, stops S2
+WHERE R1.num=R2.num AND R1.company=R2.company
+    AND R1.stop=S1.id AND R2.stop=S2.id
+    AND S1.name='Craiglockhart'
+    AND S2.name='Tollcross';
+~~~
+
+9. Proporcione una lista distinta de las paradas a las que se puede llegar desde 'Craiglockhart' tomando un autobús, incluido 'Craiglockhart', ofrecido por la compañía LRT. Incluya la compañía y el autobús no. de los servicios relevantes.
+
+~~~SQL
+SELECT DISTINCT S2.name, R2.company, R2.num
+FROM stops S1, stops S2, route R1, route R2
+WHERE S1.name='Craiglockhart'
+  AND S1.id=R1.stop
+  AND R1.company=R2.company AND R1.num=R2.num
+  AND R2.stop=S2.id
+~~~
+
+---
