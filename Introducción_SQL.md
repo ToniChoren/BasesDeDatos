@@ -21,13 +21,13 @@ se puede utilizar con el método Execute para crear y manipular directamente
 las bases de datos Jet y crear consultas  **SQL**  
 de paso a través para manipular bases de datos remotas cliente – servidor.
 
-#### 2 Componentes del SQL
+### 2 Componentes del SQL
 
 El  lenguaje  **SQL**  está compuesto por comandos, cláusulas, operadores  
 y funciones de agregado. Estos elementos se combinan en las instrucciones para  
 crear, actualizar y manipular las bases de datos.
 
-#### 3 Sublenguajes 
+### 3 Sublenguajes 
 
 Existen  6 tipos de sublenguajes  **SQL**:
 
@@ -42,7 +42,33 @@ Existen  6 tipos de sublenguajes  **SQL**:
 El núcleo central de SQL está compuestos por: 
 DQL, DML, DDL
 
-#### 4 Clausulas
+|****DQL**** | |
+| --- | --- |
+| SELECT | es el más difícil, y opera sobre datos|
+
+|****DML**** | |
+| --- | --- |
+|SELECT| esta sentencia se utiliza para realizar consultas sobre los datos|
+|INSERT| con esta instrucción podemos insertar los valores en una base de datos|
+|UPDATE| sirve para modificar los valores de uno o varios registros|
+|DELETE| se utiliza para eliminar las finas de una tabla|
+
+
+
+|****DDL**** | |
+| --- | --- |
+|CREATE| Utilizado para crear nuevas tablas, campos e índices|
+|DROP| Empleado para eliminar tablas e índices|
+|ALTER| Utilizado para modificar las tablas agregando campos o cambiando la definición de los campos|
+
+
+
+
+
+
+
+
+### 4 Clausulas
 
 Las cláusulas son condiciones de modificación utilizadas para  
 definir los datos que desea seleccionar o manipular.
@@ -66,6 +92,7 @@ definir los datos que desea seleccionar o manipular.
 ### 6 Operadores de Comparacion
 
 |**Operador** | **Uso**|
+|---|---|
 |**<**|Menor que|
 |**>**|Mayor  que|
 |**<>**|Distinto  de|
