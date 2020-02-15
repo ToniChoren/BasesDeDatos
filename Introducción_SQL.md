@@ -12,9 +12,9 @@
    
    9.1 [SELECT basics](#SELECT-basics)
    
-   9.2 [SELECT from Nobel ](#SELECT-from-Nobel )
+   9.2 [SELECT from World ](#SELECT-from-World )
    
-   9.3 [SELECT from WORLD ](#SELECT-from-WORLD )
+   9.3 [SELECT from Nobel ](#SELECT-from-Nobel )
    
    9.4 [SELECT within SELECT ](#SELECT-within-SELECT )
    
