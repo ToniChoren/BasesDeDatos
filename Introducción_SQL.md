@@ -2,7 +2,7 @@
 
 1. [Introducción](#1-Introduccion)
 2. [Componentes del SQL](#2-Componentes-del-SQL)
-3. [Comandos](#3-Comandos-DLL)
+3. [Sublenguajes SQL](#3-Comandos-DLL)
 4. [Cláusulas](#4-Clausulas)
 5. [Operadores Lógicos](#5-Operadores-Logicos)
 6. [Operadores de Comparación](#6-Operadores-de-Comparacion)
@@ -27,178 +27,64 @@ El  lenguaje  **SQL**  está compuesto por comandos, cláusulas, operadores
 y funciones de agregado. Estos elementos se combinan en las instrucciones para  
 crear, actualizar y manipular las bases de datos.
 
-####   **Comandos**
+#### 3 Sublenguajes 
 
-Existen  dos tipos de comandos  **SQL**:
+Existen  6 tipos de sublenguajes  **SQL**:
 
--   Los   DLL que permiten crear y definir nuevas bases de datos, campos e índices.
--   Los DML que permiten generar consultas para ordenar, filtrar y extraer datos  
+-   DQL(Data Query Lenguaje)
+-   DML (Data Manipulation Lenguaje) que permiten crear y definir nuevas bases de datos, campos e índices.
+-   DDL (Data Definition Lenguaje) que permiten generar consultas para ordenar, filtrar y extraer datos  
     de la base de datos.
+-   TCL (Transation Control Lenguaje) 
+-   DCL (Data Control) Lenguaje)
+-   SCL (Session Control Lenguaje)
 
-#### 3 Comandos-DLL
-
-|**Comando** | **Descripción**|
-|---|---|
-
-|**CREATE**|
-
-Utilizado para crear nuevas tablas, campos  
-e índices.|
-
-|**DROP**|
-
-Empleado para eliminar tablas e índices|
-
-|**ALTER**|
-
-Utilizado para modificar las tablas agregando  
-campos o cambiando la definición de los campos.|
-
-#### Comandos DML
-
-|**Comando** | **Descripción**|
-|---|---|
-|**SELECT**|
-
-Utilizado  
-para consultar registros de la base de datos que satisfagan un criterio  
-determinado|
-
-|**INSERT**|
-
-Utilizado  
-para cargar lotes de datos en la base de datos en una única  
-operación|
-
-|**UPDATE**|
-
-Utilizado  
-para modificar los valores de los campos y registros especificados|
-
-|**DELETE**|
-
-Utilizado  
-para eliminar registros de una tabla de una base de datos|
+El núcleo central de SQL está compuestos por: 
+DQL, DML, DDL
 
 #### 4 Clausulas
 
 Las cláusulas son condiciones de modificación utilizadas para  
 definir los datos que desea seleccionar o manipular.
 
-**Comando** / **Descripción**
+|**Comando** | **Descripción**|
+| --- | --- |
+|**FROM**| Utilizada para especificar la tabla de la cual se van a seleccionar los registros|
+|**WHERE**|Utilizada para especificar las condiciones que deben reunir los registros que se van a seleccionar|
+|**GROUP  BY**|Utilizada para separar los registros seleccionados en grupos específicos|
+|**HAVING**|Utilizada para expresar la condición que debe satisfacer cada grupo|
+|**ORDER  BY**|Utilizada para ordenar los registros seleccionados de acuerdo con un orden específico|
 
-**FROM**
+### 5 Operadores Logicos
 
-Utilizada  
-para especificar la tabla de la cual se van a seleccionar los registros
+|**Operador**  |  **Uso**|
+|---|---|
+|**AND**|Es  el “y” lógico. Evalúa dos condiciones y devuelve un valor de verdad sólo si ambas son ciertas|
+|**OR**|Es  el “o” lógico. Evalúa dos condiciones y devuelve un valor de verdad si alguna de las dos es cierta|
+|**NOT**|Negación  lógica. Devuelve el valor contrario de la expresión|
 
-**WHERE**
+### 6 Operadores de Comparacion
 
-Utilizada  
-para especificar las condiciones que deben reunir los registros que  
-se van a seleccionar
+|**Operador** | **Uso**|
+|**<**|Menor que|
+|**>**|Mayor  que|
+|**<>**|Distinto  de|
+|**<=**|Menor  ó Igual que|
+|**>=**|Mayor  ó Igual que|
+|**BETWEEN**|Utilizado para especificar un intervalo de valores|
+|**LIKE**|Utilizado en la comparación de un modelo|
+|**IN**|Utilizado para especificar registros de una base de datos|
 
-**GROUP  BY**
-
-Utilizada  
-para separar los registros seleccionados en grupos específicos
-
-**HAVING**
-
-Utilizada  
-para expresar la condición que debe satisfacer cada grupo
-
-**ORDER  BY**
-
-Utilizada  
-para ordenar los registros seleccionados de acuerdo con un orden específico
-
-#### 5 Operadores Logicos
-
-**Operador**    **Uso**
-
-**AND**
-
-Es  el “y” lógico. Evalúa dos condiciones y devuelve un  
-valor de verdad sólo si ambas son ciertas.
-
-**OR**
-
-Es  el “o” lógico. Evalúa dos condiciones y devuelve un  
-valor de verdad si alguna de las dos es cierta.
-
-**NOT**
-
-Negación  lógica. Devuelve el valor contrario de la expresión.
-
-#### 6 Operadores de Comparacion
-
-**Operador** / **Uso**
-
-**<**
-
-Menor que
-
-**>**
-
-Mayor  que
-
-**<>**
-
-Distinto  de
-
-**<=**
-
-Menor  ó Igual que
-
-**>=**
-
-Mayor  ó Igual que
-
-**BETWEEN**
-
-Utilizado  
-para especificar un intervalo de valores.
-
-**LIKE**
-
-Utilizado  
-en la comparación de un modelo
-
-**IN**
-
-Utilizado  
-para especificar registros de una base de datos
-
-#### 7 Funciones de Agregado
+### 7 Funciones de Agregado
 
 Las  funciones de agregado se usan dentro de una cláusula  **SELECT**  
 en grupos de registros para devolver un único valor que se aplica a un  
 grupo de registros.
 
-**Comando** / **Descripción**
-
-**AVG**
-
-Utilizada  
-para calcular el promedio de los valores de un campo determinado
-
-**COUNT**
-
-Utilizada  
-para devolver el número de registros de la selección
-
-**SUM**
-
-Utilizada  
-para devolver la suma de todos los valores de un campo determinado
-
-**MAX**
-
-Utilizada  
-para devolver el valor más alto de un campo especificado
-
-**MIN**
-
-Utilizada  
-para devolver el valor más bajo de un campo especificado
+|**Comando** |**Descripción**|
+| --- | --- |
+|**AVG**|Utilizada para calcular el promedio de los valores de un campo determinado|
+|**COUNT**|Utilizada para devolver el número de registros de la selección|
+|**SUM**|Utilizada para devolver la suma de todos los valores de un campo determinado|
+|**MAX**|Utilizada para devolver el valor más alto de un campo especificado|
+|**MIN**|Utilizada para devolver el valor más bajo de un campo especificado|
