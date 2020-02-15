@@ -87,9 +87,9 @@ definir los datos que desea seleccionar o manipular.
 | --- | --- |
 |**FROM**| Utilizada para especificar la tabla de la cual se van a seleccionar los registros|
 |**WHERE**|Utilizada para especificar las condiciones que deben reunir los registros que se van a seleccionar|
-|**GROUP  BY**|Utilizada para separar los registros seleccionados en grupos específicos|
-|**HAVING**|Utilizada para expresar la condición que debe satisfacer cada grupo|
-|**ORDER  BY**|Utilizada para ordenar los registros seleccionados de acuerdo con un orden específico|
+|**GROUP  BY**|Utilizada para  agrupar en sub-tablas los valores repetidos de un atributo.|
+|**HAVING**|HAVING se usa junto con GROUP BY para filtrar las tuplas de cada sub-tabla |
+|**ORDER  BY**|Utilizada para ordenar los registros seleccionados de acuerdo con un orden específico,pudiendo hacerse de manera ascendiente y descendiente.|
 
 ### 5 Operadores Logicos
 
