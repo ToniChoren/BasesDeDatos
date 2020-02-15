@@ -7,6 +7,7 @@
 5. [Operadores Lógicos](#5-Operadores-Logicos)
 6. [Operadores de Comparación](#6-Operadores-de-Comparacion)
 7. [Funciones de Agregado](#7-Funciones-de-Agregado)
+8. [Funciones](#8-Funciones)
 
 
 
@@ -112,11 +113,12 @@ definir los datos que desea seleccionar o manipular.
 |**LIKE**|Utilizado en la comparación de un modelo|
 |**IN**|Utilizado para especificar registros de una base de datos|
 
-### 7 Funciones de Agregado
+### 7 Funciones de Agregado o reductoras
 
-Las  funciones de agregado se usan dentro de una cláusula  **SELECT**  
+Las  funciones de agregado se usan dentro de una cláusula  **SELECT**  o en el HAVING del GROUP BY
 en grupos de registros para devolver un único valor que se aplica a un  
 grupo de registros.
+Además todas ignoran valores *NULL*
 
 |**Comando** |**Descripción**|
 | --- | --- |
@@ -125,3 +127,18 @@ grupo de registros.
 |**SUM**|Utilizada para devolver la suma de todos los valores de un campo determinado|
 |**MAX**|Utilizada para devolver el valor más alto de un campo especificado|
 |**MIN**|Utilizada para devolver el valor más bajo de un campo especificado|
+
+> Cuando se usa una función reductora en el SELECT, función `AS` renombra el resultado de la consulta para que no se vea el nombre de la función.
+
+### 8 Funciones
+
+|**Comando** |**Descripción**|
+| --- | --- |
+|**CONCAT**|concatena cadenas de texto o valores de un campo|
+|**ROUND**|redondea el número que se le pasa como primer parámetro. El segundo parámetro será el número de decimales |
+|**REPLACE**|reemplazar caracteres dentro de una cadena. Requiere tres argumentos|
+|**LENGTH**|devuelve el largo de la cadena |
+|**LEFT**|devuelve una sub-cadena de la cadena que se le pasa como primer parámetro|
+|**AS**| renombrar un determinado campo, pudiendo usar el nuevo nombre en el resto de la consulta. Se suele utilizar en el `SELECT` para devolver el nombre del atributo que queramos y en el `FROM` cuando se trabaja con varias tablas.|
+|**DISTINCT**| se emplea en el `SELECT` antes de un atributo para indicar que omita los valores repetidos de este mismo|
+
