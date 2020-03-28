@@ -46,14 +46,32 @@ A la hora de crear tablas, hay que indicar el tipo de datos de cada campo. Neces
 | Texto anchura fija  |  CHARACTER(n) ò CHAR(n)|
 |  Texto de anchura variable  |    VARCHAR (n)            |
 |Enteros pequeños (2 bytes)|SMALLINT |
-|||
-|||
-|||
-|||
+|Enteros normales (4 bytes)|INTEGER o INT|
+|Enteros largos (8 bytes)|BIGUINT|
+|Decimal de coma variable|FLOAT|
+|Decimal de coma variable|DOUBLE|
+|Fechas|DATE|
+|Lógicos|BOOLEAN o BOOL|
+|Monedas 8 bytes|MONEY|
 
 
+### Dominios
+Se trata de CREATE DOMAIN:
 
+Ejemplo: 
 
+~~~SQL
+CREATE DOMAIN Tdireccion AS VARCHAR(3); 
+~~~
+
+Gracias a esa instrucción podemos crear la siguiente tabla:
+~~~SQL
+ CREATE TABLE personal(
+  codPers SMALLINT, 
+  nombre VARCHAR(30), 
+  direccion Tdireccion 
+  );
+~~~
 
 
 
