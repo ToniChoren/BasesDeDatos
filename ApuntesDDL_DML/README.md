@@ -12,29 +12,29 @@
 
 	8.1 [Cambiar de nombre a una tabla](#8.1)
 	
-	8.2 [Borrar contenido a una tabla](#-Borrar-contenido-a-una-tabla)(#8.2)	
+	8.2 [Borrar contenido a una tabla](#8.2)	
 	
-	8.3 [Añadir columnas](#Añadir-columnas)	(#8.3)
+	8.3 [Añadir columnas](#8.3)
 	
-	8.4 [Borrar columnas](#Borrar-columnas)	(#8.4)
+	8.4 [Borrar columnas](#8.4)
 	
-	8.5 [Modificar columnas](#Modificar-columnas)(#8.5)	
+	8.5 [Modificar columnas](#8.5)	
 	
-	8.6 [Renombrar una columna](#Renombrar-una-columna)(#8.6)
+	8.6 [Renombrar una columna](#8.6)
 	
-	8.7 [Valor por defecto](#Valor-por-defecto)(#8.7)
+	8.7 [Valor por defecto](#8.7)
 	
 9. [Restricciones](#-Restricciones)
 
-	9.1 [Prohibir nulos](#Prohibir-nulos)(#9.1)
+	9.1 [Prohibir nulos](#9.1)
 	
-	9.2 [Valores únicos](#Valores-únicos)(#9.2)
+	9.2 [Valores únicos](#9.2)
 	
-	9.3 [Clave Primaria](#Clave-Primaria)(#9.3)
+	9.3 [Clave Primaria](#9.3)
 	
-	9.4 [Valores Foránea](#Valores-Foránea)(#9.4)
+	9.4 [Valores Foránea](#9.4)
 	
-	9.5 [Restricciones de vaoración](#Restricciones-de-vaoración)(#9.5)
+	9.5 [Restricciones de vaoración](#9.5)
 
 
 
