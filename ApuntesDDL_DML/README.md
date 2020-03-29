@@ -124,15 +124,16 @@ La orden __DROP TABLE__ seguida del nombre de una tabla, permite eliminar la tab
 Normalmente, el borrado de una tabla es irreversible, y no hay ninguna petición de confirmación, por lo que conviene ser muy cuidadoso con esta operación.
 
 ### Modifica tablas
-1. Cambiar de nombre a una tabla
+
+__1. Cambiar de nombre a una tabla__
 ~~~SQL
 ALTER TABLE nombreViejo RENAME TO nombreNuevo;
 ~~~
 
-2. Borrar contenido de tablas
+__2. Borrar contenido de tablas__
 Se dispone de una orden no estándar para eliminar definitivamente los datos de una tabla; es la orden __TRUNCATE TABLE__ seguida del nombre de la tabla a borrar. Hace que se elimine el contenido de la tabla, pero no la estructura de la tabla en sí. Incluso borra del archivo de datos el espacio ocupado por la tabla.
 
-3. Añadir columnas
+__3. Añadir columnas__
 
 Permite añadir nuevas columnas a la tabla. Se deben indicar su tipo de datos y sus propiedades si es necesario (al estilo de CREATE TABLE). Las nuevas columnas se añaden al final, no se puede indicar otra posición (hay que recordar que el orden de las columnas no importa).
 ~~~SQL
@@ -140,13 +141,13 @@ ALTER TABLE facturas ADD (fecha DATE);
 ~~~
 
 
-4. Borrar columnas
+__4. Borrar columnas__
 
 Elimina la columna indicada de manera irreversible e incluyendo los datos que contenía. No se puede eliminar la única columna de una tabla que sólo tiene esa columna (habrá que usar DROP TABLE). 
 ~~~SQL
 ALTER TABLE facturas DROP (fecha);
 ~~~
-5. Modificar columnas
+__5. Modificar columnas__
 
 Permite cambiar el tipo de datos y propiedades de una determinada columna. Sintaxis:
 ~~~SQL
@@ -154,7 +155,7 @@ ALTER TABLE facturas MODIFY(fecha TIMESTAMP);
 ~~~
 
 
-6. Renombrar una columna
+__6. Renombrar una columna__
 
 Esto permite cambiar el nombre de una columna. 
 Sintaxis 
@@ -166,7 +167,7 @@ Ejemplo:
 ~~~SQL
  ALTER TABLE facturas RENAME COLUMN fecha TO fechaYhora;
 ~~~
-7. Valor por defecto
+__7. Valor por defecto__
 
 A cada columna se le puede asignar un valor por defecto durante su creación mediante la propiedad __DEFAULT.__ Se puede poner esta propiedad durante la creación o modificación de la tabla, añadiendo la palabra __DEFAULT__ tras el tipo de datos del campo y colocando detrás el valor que se desea por defecto.
 
@@ -195,21 +196,21 @@ Por ejemplo para hacer que la clave principal de la tabla Alumnos sea el código
 
 	alu_cod_pk
 			 
-1. Prohibir nulos
+__1. Prohibir nulos__
 
 La restricción NOT NULL permite prohibir los nulos en una determinada tabla. Eso obliga a que la columna tenga que tener obligatoriamente un valor para que sea almacenado el registro. Se puede colocar durante la creación (o modificación) del campo añadiendo la palabra NOT NULL tras el tipo:
 ~~~SQL 
 CREATE TABLE cliente(dni VARCHAR2(9) NOT NULL);
 ~~~
 
-2. Valores únicos
+__2. Valores únicos__
 
 Las restricciones de tipo UNIQUE obligan a que el contenido de una o más columnas no puedan repetir valores. Nuevamente hay dos formas de colocar esta restricción:
 
 ~~~SQL
 CREATE TABLE cliente(dni VARCHAR2(9) UNIQUE);
 ~~~
-3. Clave Primaria
+__3. Clave Primaria__
 
 La clave primaria de una tabla la forman las columnas que indican a cada registro de la misma. La clave primaria hace que los campos que la forman sean NOT NULL (sin posibilidad de quedar vacíos) y que los valores de los campos sean de tipo UNIQUE (sin posibilidad de repetición). 
 
@@ -236,7 +237,7 @@ CONSTRAINT alquiler_pk
 PRIMARY KEY(dni,cod_pelicula)) ;
 ~~~
 
-4. Clave foránea
+__4. Clave foránea__
 
 Una clave secundaria o foránea, es uno o más campos de una tabla que están relacionados con la clave principal.
 
@@ -272,7 +273,7 @@ REFERENCES peliculas(cod)
 ON DELETE CASCADE );
 ~~~
 
-5. Restricción de validación
+__5. Restricción de validación__
 
 Son restricciones que dictan una condición que deben cumplir los contenidos de una columna. Una misma columna puede tener múltiples CHECKS en su definición (se pondrían varios CONSTRAINT seguidos, sin comas)
 
