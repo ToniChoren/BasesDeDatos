@@ -195,7 +195,7 @@ Si la clave está formada por más de un campo:
 ~~~SQL
 CREATE TABLE alquiler,
 dni VARCHAR(9), 
-cod_pelicula NUMBER(5), 
+cod_pelicula INTEGER(5), 
 CONSTRAINT alquiler_pk 
 PRIMARY KEY(dni,cod_pelicula)) ;
 ~~~
