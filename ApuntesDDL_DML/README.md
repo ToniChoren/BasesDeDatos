@@ -2,8 +2,26 @@
 # Indice
 
 1. [Introducción](#1-Introducción)
-2. [Creación de bases de datos](#2-Creacion-de-bases-de-datos)
+2. [Creación de bases de datos](#2-Creación-de-bases-de-datos)
 3. [Creación de bases de datos](#3-Creacion-de-tablas)
+4. [Tipos de datos](#4-Tipos-de-datos)
+5. [Dominios](#5-Dominios)
+6. [Consultar el diccionario de datos](#Consultar-el-diccionario-de-datos)
+7. [Borrar tuplas](#Borrar-tablas)
+8. [Modificar tablas](#Modifica-tablas)
+	7.1 [Cambiar de nombre a una tabla]
+	7.2 [Borrar contenido a una tabla]
+	7.3 [Añadir columnas]
+	7.4 [Borrar columnas]
+	7.5 [Modificar columnas]
+	7.6 [Renombrar una columna]
+	7.7 [Valor por defecto]
+8. [Restricciones]
+	8.1 [Prohibir nulos]
+	8.2 [Valores únicos]
+	8.3 [Clave Primaria]
+	8.4 [Valores Foránea]
+	8.5 [Restricciones de vaoración]
 
 
 
@@ -60,7 +78,7 @@ A la hora de crear tablas, hay que indicar el tipo de datos de cada campo. Neces
 |Monedas 8 bytes|MONEY|
 
 
-### Dominios
+### 5 Dominios
 Se trata de CREATE DOMAIN:
 
 Ejemplo: 
