@@ -7,12 +7,12 @@
 4. [Tipos de datos](#4-Tipos-de-datos)
 5. [Dominios](#5-Dominios)
 6. [Consultar el diccionario de datos](#6-Consultar-el-diccionario-de-datos)
-7. [Borrar tuplas](#Borrar-tablas)
-8. [Modificar tablas](#Modifica-tablas)
+7. [Borrar tuplas](#-Borrar-tablas)
+8. [Modificar tablas](#-Modifica-tablas)
 
-	8.1 [Cambiar de nombre a una tabla](#Cambiar-de-nombre-a-una-tabla)
+	8.1 [Cambiar de nombre a una tabla](#-Cambiar-de-nombre-a-una-tabla)
 	
-	8.2 [Borrar contenido a una tabla](#Borrar-contenido-a-una-tabla)	
+	8.2 [Borrar contenido a una tabla](#-Borrar-contenido-a-una-tabla)	
 	
 	8.3 [Añadir columnas](#Añadir-columnas)	
 	
