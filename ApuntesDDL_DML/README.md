@@ -10,19 +10,19 @@
 7. [Borrar tuplas](#-Borrar-tablas)
 8. [Modificar tablas](#-Modifica-tablas)
 
-	8.1 [Cambiar de nombre a una tabla](#-Cambiar de nombre a una tabla__)
+	8.1 [Cambiar de nombre a una tabla](#-Cambiar-de-nombre-a-una-tabla)
 	
-	8.2 [Borrar contenido a una tabla](#-Borrar-contenido-a-una-tabla__)	
+	8.2 [Borrar contenido a una tabla](#-Borrar-contenido-a-una-tabla)	
 	
-	8.3 [Añadir columnas](#-Añadir-columnas__)	
+	8.3 [Añadir columnas](#-Añadir-columnas)	
 	
-	8.4 [Borrar columnas](#-Borrar-columnas__)	
+	8.4 [Borrar columnas](#-Borrar-columnas)	
 	
-	8.5 [Modificar columnas](#-Modificar-columnas__)	
+	8.5 [Modificar columnas](#-Modificar-columnas)	
 	
-	8.6 [Renombrar una columna](#-Renombrar-una-columna__)	
+	8.6 [Renombrar una columna](#-Renombrar-una-columna)	
 	
-	8.7 [Valor por defecto](#-Valor-por-defecto__)
+	8.7 [Valor por defecto](#-Valor-por-defecto)
 	
 8. [Restricciones](#-Restricciones)
 
