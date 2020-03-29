@@ -1,26 +1,10 @@
 
 # Indice
 
-1.[Introducción]_(#1-Introducción)
-2.[Creación de bases de datos]_(2-Creación-de-bases-de-datos)
-3. [Creación de bases de datos]_(3-Creación-de-tablas)
-4. [Tipos de datos]
-5. [Consultar el diccionario de datos]
-6. [Borrar tuplas]
-7. [Modificar tablas]
-	7.1 [Cambiar de nombre a una tabla]
-	7.2 [Borrar contenido a una tabla]
-	7.3 [Añadir columnas]
-	7.4 [Borrar columnas]
-	7.5 [Modificar columnas]
-	7.6 [Renombrar una columna]
-	7.7 [Valor por defecto]
-8. [Restricciones]
-	8.1 [Prohibir nulos]
-	8.2 [Valores únicos]
-	8.3 [Clave Primaria]
-	8.4 [Valores Foránea]
-	8.5 [Restricciones de vaoración]
+1. [Introducción](#1-Introducción)
+2. [Creación de bases de datos](2-Creación-de-bases-de-datos)
+3. [Creación de bases de datos](3-Creación-de-tablas)
+
 
 
 ### 1 Introducción
