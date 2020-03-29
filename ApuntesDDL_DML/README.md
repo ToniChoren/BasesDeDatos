@@ -125,7 +125,7 @@ Normalmente, el borrado de una tabla es irreversible, y no hay ninguna petición
 
 ### 8 Modifica tablas
 
-__1. Cambiar de nombre a una tabla__ <a name="8.1> </a>
+__1. Cambiar de nombre a una tabla__ <a name="8.1"> </a>
 ~~~SQL
 ALTER TABLE nombreViejo RENAME TO nombreNuevo;
 ~~~
