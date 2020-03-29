@@ -2,8 +2,8 @@
 # Indice
 
 1. [Introducción](#1-Introducción)
-2. [Creación de bases de datos](2-Creación-de-bases-de-datos)
-3. [Creación de bases de datos](3-Creación-de-tablas)
+2. [Creación de bases de datos](2-Creacion-de-bases-de-datos)
+3. [Creación de bases de datos](3-Creacion-de-tablas)
 
 
 
@@ -23,7 +23,7 @@ El comando SQL de creación de una base de datos es CREATE DATABASE. Este comand
 ~~~SQL
 CREATE DATABASE prueba;
 ~~~
-### 3 Creación de tablas
+### 3 Creacion de tablas
 
 El nombre de las tablas deben cumplir las siguientes reglas: 
 
