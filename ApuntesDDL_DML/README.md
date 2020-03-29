@@ -2,8 +2,8 @@
 # Indice
 
 1. [Introducción](#1-Introducción)
-2. [Creación de bases de datos](2-Creacion-de-bases-de-datos)
-3. [Creación de bases de datos](3-Creacion-de-tablas)
+2. [Creación de bases de datos](#2-Creacion-de-bases-de-datos)
+3. [Creación de bases de datos](#3-Creacion-de-tablas)
 
 
 
