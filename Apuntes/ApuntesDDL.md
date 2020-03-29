@@ -236,7 +236,7 @@ REFERENCES peliculas(cod)
 ON DELETE CASCADE );
 ~~~
 
-5. Restricción de valoración
+5. Restricción de validación
 
 Son restricciones que dictan una condición que deben cumplir los contenidos de una columna. Una misma columna puede tener múltiples CHECKS en su definición (se pondrían varios CONSTRAINT seguidos, sin comas)
 
