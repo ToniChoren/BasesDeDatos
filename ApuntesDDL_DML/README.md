@@ -6,7 +6,7 @@
 3. [Creación de bases de datos](#3-Creacion-de-tablas)
 4. [Tipos de datos](#4-Tipos-de-datos)
 5. [Dominios](#5-Dominios)
-6. [Consultar el diccionario de datos](#-Consultar-el-diccionario-de-datos)
+6. [Consultar el diccionario de datos](#-6-Consultar-el-diccionario-de-datos)
 7. [Borrar tuplas](#-Borrar-tablas)
 8. [Modificar tablas](#-Modifica-tablas)
 
@@ -24,7 +24,7 @@
 	
 	8.7 [Valor por defecto](#-Valor-por-defecto)
 	
-8. [Restricciones](#-Restricciones)
+9. [Restricciones](#-Restricciones)
 
 	8.1 [Prohibir nulos](#-Prohibir-nulos)
 	
@@ -109,7 +109,7 @@ Gracias a esa instrucción podemos crear la siguiente tabla:
   );
 ~~~
 
-### Consultar el diccionario de datos
+### 6 Consultar el diccionario de datos
 
 El diccionario de datos es accesible mediante el esquema  de información (INFORMATION_SCHEMA), un esquema especial que contiene el conjunto de vistas con el que se pueden consultar metadatos de la base de
 datos.
@@ -119,11 +119,11 @@ las tablas creadas. Es decir:
 SELECT * FROM INFORMATION_SCHEMA.TABLES
 ~~~
 
-### Borrar tablas
+### 7 Borrar tablas
 La orden __DROP TABLE__ seguida del nombre de una tabla, permite eliminar la tabla en cuestión.
 Normalmente, el borrado de una tabla es irreversible, y no hay ninguna petición de confirmación, por lo que conviene ser muy cuidadoso con esta operación.
 
-### Modifica tablas
+### 8 Modifica tablas
 
 __1. Cambiar de nombre a una tabla__
 ~~~SQL
@@ -178,7 +178,7 @@ Ejemplo:
 ~~~
 La palabra DEFAULT se puede añadir durante la creación o la modificación de la tabla (comando ALTER TABLE)
 
-### Restricciones
+### 9 Restricciones
 
 Una restricción es una condición de obligado cumplimiento para una o más columnas de la tabla. No se puede repetir.
 Se aconseja la siguiente regla a la hora de poner nombre a las restricciones:  
