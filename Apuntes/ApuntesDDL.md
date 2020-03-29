@@ -1,8 +1,28 @@
 # Apuntes DDL y DML
 ## Indice
+1. [Introducción]_(#1 Introducción)
+2. [Creación de bases de datos]
+3. [Creación de bases de datos]
+4. [Tipos de datos]
+5. [Consultar el diccionario de datos]
+6. [Borrar tuplas]
+7. [Modificar tablas]
+	7.1 [Cambiar de nombre a una tabla]
+	7.2 [Borrar contenido a una tabla]
+	7.3 [Añadir columnas]
+	7.4 [Borrar columnas]
+	7.5 [Modificar columnas]
+	7.6 [Renombrar una columna]
+	7.7 [Valor por defecto]
+8. [Restricciones]
+	8.1 [Prohibir nulos]
+	8.2 [Valores únicos]
+	8.3 [Clave Primaria]
+	8.4 [Valores Foránea]
+	8.5 [Restricciones de vaoración]
 
 
-### Introducción
+### 1 Introducción
 
 El DDL es la parte del lenguaje SQL que realiza la función de definición de datos del SGBD. Fundamentalmente se encarga de la creación, modificación y eliminación de los objetos de la base de datos (es decir de los metadatos). Por supuesto es el encargado de la creación de las tablas.
 
@@ -12,13 +32,13 @@ Esos objetos pueden ser: tablas, vistas, índices y otras objetos relacionados c
 
 Hay que tener en cuenta que ninguna instrucción DDL puede ser anulada por una instrucción ROLLBACK (la instrucción ROLLBACK está relacionada con el uso de transacciones que se comentarán más adelante) por lo que hay que tener mucha precaución a la hora de utilizarlas. Es decir, las instrucciones DDL generan acciones que no se pueden deshacer (salvo que dispongamos de alguna copia de seguridad).
 
-### Creación de bases de datos
+### 2 Creación de bases de datos
 
 El comando SQL de creación de una base de datos es CREATE DATABASE. Este comando crea una base de datos con el nombre que se indique. Ejemplo:
 ~~~SQL
 CREATE DATABASE prueba;
 ~~~
-### Creación de tablas
+### 3 Creación de tablas
 
 El nombre de las tablas deben cumplir las siguientes reglas: 
 
@@ -38,7 +58,7 @@ Dato2 VARCHAR(30),
 Dato1 CHAR(10)
 );
 ~~~
-### Tipos de datos
+### 4 Tipos de datos
 A la hora de crear tablas, hay que indicar el tipo de datos de cada campo. Necesitamos pues conocer los distintos tipos de datos. Estos son:
 
 |Descripción | Tipo Dato|
@@ -73,7 +93,7 @@ Gracias a esa instrucción podemos crear la siguiente tabla:
   );
 ~~~
 
-### Consultar el estado de datos
+### Consultar el diccionario de datos
 
 El diccionario de datos es accesible mediante el esquema  de información (INFORMATION_SCHEMA), un esquema especial que contiene el conjunto de vistas con el que se pueden consultar metadatos de la base de
 datos.
