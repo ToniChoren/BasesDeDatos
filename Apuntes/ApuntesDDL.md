@@ -117,6 +117,7 @@ Permite cambiar el tipo de datos y propiedades de una determinada columna. Sinta
 ALTER TABLE facturas MODIFY(fecha TIMESTAMP);
 ~~~
 
+
 6. Renombrar una columna
 
 Esto permite cambiar el nombre de una columna. 
@@ -129,11 +130,111 @@ Ejemplo:
 ~~~SQL
  ALTER TABLE facturas RENAME COLUMN fecha TO fechaYhora;
 ~~~
+7. Valor por defecto
+
+A cada columna se le puede asignar un valor por defecto durante su creación mediante la propiedad __DEFAULT.__ Se puede poner esta propiedad durante la creación o modificación de la tabla, añadiendo la palabra __DEFAULT__ tras el tipo de datos del campo y colocando detrás el valor que se desea por defecto.
+
+Ejemplo:
+~~~SQL 
+  CREATE TABLE articulo (cod NUMBER(7), nombre VARCHAR2(25), precio NUMBER(11,2) DEFAULT 3.5); 
+~~~
+La palabra DEFAULT se puede añadir durante la creación o la modificación de la tabla (comando ALTER TABLE)
+
+### Restricciones
+
+Una restricción es una condición de obligado cumplimiento para una o más columnas de la tabla. No se puede repetir.
+Se aconseja la siguiente regla a la hora de poner nombre a las restricciones:  
+- Tres letras para el nombre de la tabla 
+- Carácter de subrayado  
+- Tres letras con la columna afectada por la restricción 
+- Carácter de subrayado 
+- Dos letras con la abreviatura del tipo de restricción. La abreviatura puede ser: 
+	- __NN__. NOT NULL.  
+	- __PK__. PRIMARY KEY 
+	- __UK__. UNIQUE 
+	- __FK__. FOREIGN KEY 
+	- __CK__. CHECK (validación) 
+
+Por ejemplo para hacer que la clave principal de la tabla Alumnos sea el código del alumno, el nombre de la restricción podría ser:
+
+	alu_cod_pk
+			 
+1. Prohibir nulos
+
+La restricción NOT NULL permite prohibir los nulos en una determinada tabla. Eso obliga a que la columna tenga que tener obligatoriamente un valor para que sea almacenado el registro. Se puede colocar durante la creación (o modificación) del campo añadiendo la palabra NOT NULL tras el tipo:
+~~~SQL 
+CREATE TABLE cliente(dni VARCHAR2(9) NOT NULL);
+~~~
+
+2. Valores únicos
+
+Las restricciones de tipo UNIQUE obligan a que el contenido de una o más columnas no puedan repetir valores. Nuevamente hay dos formas de colocar esta restricción:
+
+~~~SQL
+CREATE TABLE cliente(dni VARCHAR2(9) UNIQUE);
+~~~
+3. Clave Primaria
+
+La clave primaria de una tabla la forman las columnas que indican a cada registro de la misma. La clave primaria hace que los campos que la forman sean NOT NULL (sin posibilidad de quedar vacíos) y que los valores de los campos sean de tipo UNIQUE (sin posibilidad de repetición). 
+
+Si la clave está formada por un solo campo basta con:
+~~~SQL
+CREATE TABLE cliente( 
+dni VARCHAR(9) PRIMARY KEY, 
+nombre VARCHAR(50)
+);
+~~~
+Poniendo un nombre a la restricción:
+
+~~~SQL
+CREATE TABLE cliente( dni VARCHAR(9) CONSTRAINT cliente_pk PRIMARY KEY, 
+nombre VARCHAR(50)
+);
+~~~
+Si la clave está formada por más de un campo:
+~~~SQL
+CREATE TABLE alquiler,
+dni VARCHAR(9), 
+cod_pelicula NUMBER(5), 
+CONSTRAINT alquiler_pk 
+PRIMARY KEY(dni,cod_pelicula)) ;
+~~~
+
+4. Clave foránea
+
+Una clave secundaria o foránea, es uno o más campos de una tabla que están relacionados con la clave principal.
+
+~~~SQL
+CREATE TABLE alquiler( 
+dni VARCHAR2(9) CONSTRAINT dni_fk REFERENCES clientes, 
+cod_pelicula NUMBER(5) CONSTRAINT pelicula_fk REFERENCES peliculas, 
+CONSTRAINT alquiler_pk PRIMARY KEY(dni,cod_pelicula) 
+);
+~~~
 
 
+La integridad referencial es una herramienta imprescindible de las bases de datos relacionales. Pero provoca varios problemas. Por ejemplo, si borramos un registro en la tabla principal que está relacionado con uno o varios de la secundaria ocurrirá un error, ya que de permitírsenos borrar el registro ocurrirá fallo de integridad (habrá claves secundarios refiriéndose a una clave principal que ya no existe). 
 
+Por ello se nos pueden ofrecer soluciones a añadir tras la cláusula REFERENCES. 
+Son:
+- __ON DELETE SET NULL.__ Coloca nulos todas las claves secundarias relacionadas con la borrada. 
+- __ON DELETE CASCADE.__ Borra todos los registros cuya clave secundaria es igual que la clave del registro borrado. 
+- __ON DELETE SET DEFAULT.__ Coloca en el registro relacionado el valor por defecto en la columna relacionada
+- __ON DELETE NOTHING.__ No hace nada.
 
+En el caso explicado se aplicarían las cláusulas cuando se eliminen filas de la clave principal relacionada con la clave secundaria. En esas cuatro cláusulas se podría sustituir la palabra __DELETE__ por la palabra __UPDATE,__ haciendo que el funcionamiento se refiera a cuando se modifica un registro de la tabla principal; en muchas bases de datos se admite el uso tanto de ON DELETE como de ON UPDATE.
 
+Ejemplo
+~~~SQL
+CREATE TABLE alquiler(dni VARCHAR(9), 
+cod_pelicula NUMBER(5), 
+CONSTRAINT alquiler_pk PRIMARY KEY(dni,cod_pelicula), 
+CONSTRAINT dni_fk FOREIGN KEY (dni) REFERENCES clientes(dni) 
+ON DELETE SET NULL, 
+CONSTRAINT pelicula_fk FOREIGN KEY (cod_pelicula) 
+REFERENCES peliculas(cod) 
+ON DELETE CASCADE );
+~~~
 
 
 
