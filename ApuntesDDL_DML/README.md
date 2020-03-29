@@ -10,7 +10,7 @@
 7. [Borrar tuplas](#7-Borrar-tablas)
 8. [Modificar tablas](#8-Modifica-tablas)
 
-	8.1 [Cambiar de nombre a una tabla](#__1.-Cambiar-de-nombre-a-una-tabla__)
+	8.1 [Cambiar de nombre a una tabla](#Cambiar-de-nombre-a-una-tabla__)
 	
 	8.2 [Borrar contenido a una tabla](#-Borrar-contenido-a-una-tabla)	
 	
@@ -125,7 +125,7 @@ Normalmente, el borrado de una tabla es irreversible, y no hay ninguna petición
 
 ### 8 Modifica tablas
 
-__1. Cambiar de nombre a una tabla__
+1. Cambiar de nombre a una tabla
 ~~~SQL
 ALTER TABLE nombreViejo RENAME TO nombreNuevo;
 ~~~
