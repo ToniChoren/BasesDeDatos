@@ -1,7 +1,7 @@
 
 # Indice
 
-1. [Introducción](#1-Introducción)
+1. [Introducción DDL](#1-Introducción-DDL)
 2. [Creación de bases de datos](#2-Creación-de-bases-de-datos)
 3. [Creación de bases de datos](#3-Creacion-de-tablas)
 4. [Tipos de datos](#4-Tipos-de-datos)
@@ -10,12 +10,18 @@
 7. [Borrar tuplas](#-Borrar-tablas)
 8. [Modificar tablas](#-Modifica-tablas)
 
-	8.1 [Cambiar de nombre a una tabla](#-Cambiar-de-nombre-a-una-tabla)	
+	8.1 [Cambiar de nombre a una tabla](#-Cambiar-de-nombre-a-una-tabla)
+	
 	8.2 [Borrar contenido a una tabla](#-Borrar-contenido-a-una-tabla)	
+	
 	8.3 [Añadir columnas](#-Añadir-columnas)	
+	
 	8.4 [Borrar columnas](#-Borrar-columnas)	
+	
 	8.5 [Modificar columnas](#-Modificar-columnas)	
+	
 	8.6 [Renombrar una columna](#-Renombrar-una-columna)	
+	
 	8.7 [Valor por defecto](#-Valor-por-defecto)
 	
 8. [Restricciones](#-Restricciones)
@@ -32,7 +38,7 @@
 
 
 
-### 1 Introducción
+### 1 Introducción DDL
 
 El DDL es la parte del lenguaje SQL que realiza la función de definición de datos del SGBD. Fundamentalmente se encarga de la creación, modificación y eliminación de los objetos de la base de datos (es decir de los metadatos). Por supuesto es el encargado de la creación de las tablas.
 
