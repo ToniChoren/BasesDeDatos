@@ -12,29 +12,29 @@
 
 	8.1 [Cambiar de nombre a una tabla](#8.1)
 	
-	8.2 [Borrar contenido a una tabla](#-Borrar-contenido-a-una-tabla)	
+	8.2 [Borrar contenido a una tabla](#-Borrar-contenido-a-una-tabla)(#8.2)	
 	
-	8.3 [Añadir columnas](#Añadir-columnas)	
+	8.3 [Añadir columnas](#Añadir-columnas)	(#8.3)
 	
-	8.4 [Borrar columnas](#Borrar-columnas)	
+	8.4 [Borrar columnas](#Borrar-columnas)	(#8.4)
 	
-	8.5 [Modificar columnas](#Modificar-columnas)	
+	8.5 [Modificar columnas](#Modificar-columnas)(#8.5)	
 	
-	8.6 [Renombrar una columna](#Renombrar-una-columna)	
+	8.6 [Renombrar una columna](#Renombrar-una-columna)(#8.6)
 	
-	8.7 [Valor por defecto](#Valor-por-defecto)
+	8.7 [Valor por defecto](#Valor-por-defecto)(#8.7)
 	
 9. [Restricciones](#-Restricciones)
 
-	8.1 [Prohibir nulos](#Prohibir-nulos)
+	9.1 [Prohibir nulos](#Prohibir-nulos)(#9.1)
 	
-	8.2 [Valores únicos](#Valores-únicos)
+	9.2 [Valores únicos](#Valores-únicos)(#9.2)
 	
-	8.3 [Clave Primaria](#Clave-Primaria)
+	9.3 [Clave Primaria](#Clave-Primaria)(#9.3)
 	
-	8.4 [Valores Foránea](#Valores-Foránea)
+	9.4 [Valores Foránea](#Valores-Foránea)(#9.4)
 	
-	8.5 [Restricciones de vaoración](#Restricciones-de-vaoración)
+	9.5 [Restricciones de vaoración](#Restricciones-de-vaoración)(#9.5)
 
 
 
@@ -130,11 +130,11 @@ __1. Cambiar de nombre a una tabla__ <a name="8.1"> </a>
 ALTER TABLE nombreViejo RENAME TO nombreNuevo;
 ~~~
 
-__2. Borrar contenido de tablas__
+__2. Borrar contenido de tablas__ <a name="8.2"> </a>
 
 Se dispone de una orden no estándar para eliminar definitivamente los datos de una tabla; es la orden __TRUNCATE TABLE__ seguida del nombre de la tabla a borrar. Hace que se elimine el contenido de la tabla, pero no la estructura de la tabla en sí. Incluso borra del archivo de datos el espacio ocupado por la tabla.
 
-__3. Añadir columnas__
+__3. Añadir columnas__ <a name="8.3"> </a>
 
 Permite añadir nuevas columnas a la tabla. Se deben indicar su tipo de datos y sus propiedades si es necesario (al estilo de CREATE TABLE). Las nuevas columnas se añaden al final, no se puede indicar otra posición (hay que recordar que el orden de las columnas no importa).
 ~~~SQL
@@ -142,13 +142,13 @@ ALTER TABLE facturas ADD (fecha DATE);
 ~~~
 
 
-__4. Borrar columnas__
+__4. Borrar columnas__ <a name="8.4"> </a>
 
 Elimina la columna indicada de manera irreversible e incluyendo los datos que contenía. No se puede eliminar la única columna de una tabla que sólo tiene esa columna (habrá que usar DROP TABLE). 
 ~~~SQL
 ALTER TABLE facturas DROP (fecha);
 ~~~
-__5. Modificar columnas__
+__5. Modificar columnas__ <a name="8.5"> </a>
 
 Permite cambiar el tipo de datos y propiedades de una determinada columna. Sintaxis:
 ~~~SQL
@@ -156,7 +156,7 @@ ALTER TABLE facturas MODIFY(fecha TIMESTAMP);
 ~~~
 
 
-__6. Renombrar una columna__
+__6. Renombrar una columna__ <a name="8.6"> </a>
 
 Esto permite cambiar el nombre de una columna. 
 Sintaxis 
@@ -168,7 +168,7 @@ Ejemplo:
 ~~~SQL
  ALTER TABLE facturas RENAME COLUMN fecha TO fechaYhora;
 ~~~
-__7. Valor por defecto__
+__7. Valor por defecto__ <a name="8.7"> </a>
 
 A cada columna se le puede asignar un valor por defecto durante su creación mediante la propiedad __DEFAULT.__ Se puede poner esta propiedad durante la creación o modificación de la tabla, añadiendo la palabra __DEFAULT__ tras el tipo de datos del campo y colocando detrás el valor que se desea por defecto.
 
@@ -197,21 +197,21 @@ Por ejemplo para hacer que la clave principal de la tabla Alumnos sea el código
 
 	alu_cod_pk
 			 
-__1. Prohibir nulos__
+__1. Prohibir nulos__ <a name="9.1"> </a>
 
 La restricción NOT NULL permite prohibir los nulos en una determinada tabla. Eso obliga a que la columna tenga que tener obligatoriamente un valor para que sea almacenado el registro. Se puede colocar durante la creación (o modificación) del campo añadiendo la palabra NOT NULL tras el tipo:
 ~~~SQL 
 CREATE TABLE cliente(dni VARCHAR2(9) NOT NULL);
 ~~~
 
-__2. Valores únicos__
+__2. Valores únicos__ <a name="9.2"> </a>
 
 Las restricciones de tipo UNIQUE obligan a que el contenido de una o más columnas no puedan repetir valores. Nuevamente hay dos formas de colocar esta restricción:
 
 ~~~SQL
 CREATE TABLE cliente(dni VARCHAR2(9) UNIQUE);
 ~~~
-__3. Clave Primaria__
+__3. Clave Primaria__ <a name="9.3"> </a>
 
 La clave primaria de una tabla la forman las columnas que indican a cada registro de la misma. La clave primaria hace que los campos que la forman sean NOT NULL (sin posibilidad de quedar vacíos) y que los valores de los campos sean de tipo UNIQUE (sin posibilidad de repetición). 
 
@@ -238,7 +238,7 @@ CONSTRAINT alquiler_pk
 PRIMARY KEY(dni,cod_pelicula)) ;
 ~~~
 
-__4. Clave foránea__
+__4. Clave foránea__ <a name="9.4"> </a>
 
 Una clave secundaria o foránea, es uno o más campos de una tabla que están relacionados con la clave principal.
 
@@ -274,7 +274,7 @@ REFERENCES peliculas(cod)
 ON DELETE CASCADE );
 ~~~
 
-__5. Restricción de validación__
+__5. Restricción de validación__ <a name="9.5"> </a>
 
 Son restricciones que dictan una condición que deben cumplir los contenidos de una columna. Una misma columna puede tener múltiples CHECKS en su definición (se pondrían varios CONSTRAINT seguidos, sin comas)
 
