@@ -131,6 +131,7 @@ ALTER TABLE nombreViejo RENAME TO nombreNuevo;
 ~~~
 
 __2. Borrar contenido de tablas__
+
 Se dispone de una orden no estándar para eliminar definitivamente los datos de una tabla; es la orden __TRUNCATE TABLE__ seguida del nombre de la tabla a borrar. Hace que se elimine el contenido de la tabla, pero no la estructura de la tabla en sí. Incluso borra del archivo de datos el espacio ocupado por la tabla.
 
 __3. Añadir columnas__
