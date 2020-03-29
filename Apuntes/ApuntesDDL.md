@@ -93,8 +93,42 @@ Normalmente, el borrado de una tabla es irreversible, y no hay ninguna petición
 ALTER TABLE nombreViejo RENAME TO nombreNuevo;
 ~~~
 
-### Borrar contenido de tablas
+2. Borrar contenido de tablas
 Se dispone de una orden no estándar para eliminar definitivamente los datos de una tabla; es la orden __TRUNCATE TABLE__ seguida del nombre de la tabla a borrar. Hace que se elimine el contenido de la tabla, pero no la estructura de la tabla en sí. Incluso borra del archivo de datos el espacio ocupado por la tabla.
+
+3. Añadir columnas
+
+Permite añadir nuevas columnas a la tabla. Se deben indicar su tipo de datos y sus propiedades si es necesario (al estilo de CREATE TABLE). Las nuevas columnas se añaden al final, no se puede indicar otra posición (hay que recordar que el orden de las columnas no importa).
+~~~SQL
+ALTER TABLE facturas ADD (fecha DATE);
+~~~
+
+
+4. Borrar columnas
+
+Elimina la columna indicada de manera irreversible e incluyendo los datos que contenía. No se puede eliminar la única columna de una tabla que sólo tiene esa columna (habrá que usar DROP TABLE). 
+~~~SQL
+ALTER TABLE facturas DROP (fecha);
+~~~
+5. Modificar columnas
+
+Permite cambiar el tipo de datos y propiedades de una determinada columna. Sintaxis:
+~~~SQL
+ALTER TABLE facturas MODIFY(fecha TIMESTAMP);
+~~~
+
+6. Renombrar una columna
+
+Esto permite cambiar el nombre de una columna. 
+Sintaxis 
+~~~SQL
+ALTER TABLE nombreTabla 
+RENAME COLUMN nombreAntiguo TO nombreNuevo 
+~~~
+Ejemplo:
+~~~SQL
+ ALTER TABLE facturas RENAME COLUMN fecha TO fechaYhora;
+~~~
 
 
 
