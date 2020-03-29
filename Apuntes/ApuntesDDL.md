@@ -73,9 +73,28 @@ Gracias a esa instrucción podemos crear la siguiente tabla:
   );
 ~~~
 
+### Consultar el estado de datos
 
+El diccionario de datos es accesible mediante el esquema  de información (INFORMATION_SCHEMA), un esquema especial que contiene el conjunto de vistas con el que se pueden consultar metadatos de la base de
+datos.
+ En concreto la vista INFORMATION_SCHEMA.TABLES obtiene una vista de
+las tablas creadas. Es decir:
+~~~SQL
+SELECT * FROM INFORMATION_SCHEMA.TABLES
+~~~
 
+### Borrar tablas
+La orden __DROP TABLE__ seguida del nombre de una tabla, permite eliminar la tabla en cuestión.
+Normalmente, el borrado de una tabla es irreversible, y no hay ninguna petición de confirmación, por lo que conviene ser muy cuidadoso con esta operación.
 
+### Modifica tablas
+1. Cambiar de nombre a una tabla
+~~~SQL
+ALTER TABLE nombreViejo RENAME TO nombreNuevo;
+~~~
+
+### Borrar contenido de tablas
+Se dispone de una orden no estándar para eliminar definitivamente los datos de una tabla; es la orden __TRUNCATE TABLE__ seguida del nombre de la tabla a borrar. Hace que se elimine el contenido de la tabla, pero no la estructura de la tabla en sí. Incluso borra del archivo de datos el espacio ocupado por la tabla.
 
 
 
