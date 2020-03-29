@@ -236,6 +236,19 @@ REFERENCES peliculas(cod)
 ON DELETE CASCADE );
 ~~~
 
+5. Restricción de valoración
+
+Son restricciones que dictan una condición que deben cumplir los contenidos de una columna. Una misma columna puede tener múltiples CHECKS en su definición (se pondrían varios CONSTRAINT seguidos, sin comas)
+
+~~~SQL
+CREATE TABLE ingresos(
+cod INTEGER(5) PRIMARY KEY, 
+concepto VARCHAR(40) NOT NULL, 
+importe MONEY(11,2) CONSTRAINT importe_min 
+CHECK (importe>0) 
+CONSTRAINT importe_max 
+CHECK (importe<8000) );
+~~~
 
 
 
