@@ -1,9 +1,9 @@
 # Indice
 
 1. [Introducción DML](#1)
-2. [Insercción de datos(INSERT)](#2-Insercción-de-datos(INSERT))(#2)
-3. [Actualizacion de registros(UPDATE)](#3-Actualizacion-de-registros(UPDATE))(#3)
-4. [Borrado de registros(DELETE)](#3-Creacion-de-tablas)(#4)
+2. [Insercción de datos(INSERT)](#2)
+3. [Actualizacion de registros(UPDATE)](#3)
+4. [Borrado de registros(DELETE)](#4)
 	
 ### 1 Introducción DML <a name="1"></a>
 
