@@ -7,11 +7,11 @@
 4. [Desinstalación de MySQL](#4)
 
 
-### Introducción
+### Introducción <a name"1"></a>
 
 MySQL es un sistema de gestión de bases de datos de código abierto, que generalmente está instalado como parte de la popular combinación LAMP (Linux, Apache, MySQL, PHP/Python/Perl). Gestiona sus datos usando una base de datos relacional y SQL (Lenguaje de consulta estructurada).
 
-### Instalar MySQL
+### Instalar MySQL <a name"2"></a>
 
 Únicamente la última versión de MySQL se incluye en el repositorio de paquete APT de forma predeterminada en Ubuntu 18.04. Al momento de escribir esto, esa sería la versión MySQL 5.7.
 
@@ -33,7 +33,7 @@ Ahora instalamos el paquete
 
 Con esto tendríamos instaldo  MySQL de forma básica y sencilla.
 
-### Probar MySQL
+### Probar MySQL <a name"3"></a>
 
 Una vez instalado debería haber empezado a ejecutarse automáticamente.
 Para probarlo escribimos el soguiente comando.
@@ -45,7 +45,7 @@ Para probarlo escribimos el soguiente comando.
 
   Si MySQL no se está ejecutando, puede iniciarlo usando sudo systemctl start mysql.
 
-### Desinstalación de MySQL 
+### Desinstalación de MySQL <a name"4"></a>
 
 Generalmente cuando instalamos el MySQL en los sistemas Linux Debian o Ubuntu, se instalan los siguiente paquetes.
 
