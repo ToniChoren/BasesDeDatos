@@ -31,7 +31,7 @@ Ahora instalamos el paquete
 ![Alt text](https://github.com/ToniChoren/BasesDeDatos/blob/master/InstalacionMySQL/capturas/capturas%20ubuntu/captura2.png)
 
 
-Con esto tendríamos instaldo  MySQL de forma básica y sencilla.
+Con estos dos pasos ya  tendríamos instaldo  MySQL de forma básica y sencilla.
 
 ### Probar MySQL <a name="3"></a>
 
