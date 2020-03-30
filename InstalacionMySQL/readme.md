@@ -44,6 +44,8 @@ Para probarlo escribimos el soguiente comando.
 ![Alt text](https://github.com/ToniChoren/BasesDeDatos/blob/master/InstalacionMySQL/capturas/capturas%20ubuntu/comprobacionServices.PNG)
 
   Si MySQL no se está ejecutando, puede iniciarlo usando sudo systemctl start mysql.
+  
+    sudo systemctl start mysql
 
 ### Desinstalación de MySQL <a name="4"></a>
 
