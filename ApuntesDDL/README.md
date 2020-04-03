@@ -48,12 +48,21 @@ Esos objetos pueden ser: tablas, vistas, índices y otras objetos relacionados c
 
 Hay que tener en cuenta que ninguna instrucción DDL puede ser anulada por una instrucción ROLLBACK (la instrucción ROLLBACK está relacionada con el uso de transacciones que se comentarán más adelante) por lo que hay que tener mucha precaución a la hora de utilizarlas. Es decir, las instrucciones DDL generan acciones que no se pueden deshacer (salvo que dispongamos de alguna copia de seguridad).
 
+[⬆⬆ INDICE ⬆⬆](#INDICE)
+
+***
+
 ### 2 Creación de bases de datos
 
 El comando SQL de creación de una base de datos es CREATE DATABASE. Este comando crea una base de datos con el nombre que se indique. Ejemplo:
 ~~~SQL
 CREATE DATABASE prueba;
 ~~~
+
+[⬆⬆ INDICE ⬆⬆](#INDICE)
+
+***
+
 ### 3 Creacion de tablas
 
 El nombre de las tablas deben cumplir las siguientes reglas: 
@@ -74,6 +83,11 @@ Dato2 VARCHAR(30),
 Dato1 CHAR(10)
 );
 ~~~
+
+[⬆⬆ INDICE ⬆⬆](#INDICE)
+
+***
+
 ### 4 Tipos de datos
 A la hora de crear tablas, hay que indicar el tipo de datos de cada campo. Necesitamos pues conocer los distintos tipos de datos. Estos son:
 
@@ -109,6 +123,10 @@ Gracias a esa instrucción podemos crear la siguiente tabla:
   );
 ~~~
 
+[⬆⬆ INDICE ⬆⬆](#INDICE)
+
+***
+
 ### 6 Consultar el diccionario de datos
 
 El diccionario de datos es accesible mediante el esquema  de información (INFORMATION_SCHEMA), un esquema especial que contiene el conjunto de vistas con el que se pueden consultar metadatos de la base de
@@ -122,6 +140,10 @@ SELECT * FROM INFORMATION_SCHEMA.TABLES
 ### 7 Borrar tablas
 La orden __DROP TABLE__ seguida del nombre de una tabla, permite eliminar la tabla en cuestión.
 Normalmente, el borrado de una tabla es irreversible, y no hay ninguna petición de confirmación, por lo que conviene ser muy cuidadoso con esta operación.
+
+[⬆⬆ INDICE ⬆⬆](#INDICE)
+
+***
 
 ### 8 Modifica tablas
 
@@ -177,6 +199,10 @@ Ejemplo:
   CREATE TABLE articulo (cod NUMBER(7), nombre VARCHAR2(25), precio NUMBER(11,2) DEFAULT 3.5); 
 ~~~
 La palabra DEFAULT se puede añadir durante la creación o la modificación de la tabla (comando ALTER TABLE)
+
+[⬆⬆ INDICE ⬆⬆](#INDICE)
+
+***
 
 ### 9 Restricciones
 
@@ -288,7 +314,9 @@ CONSTRAINT importe_max
 CHECK (importe<8000) );
 ~~~
 
+[⬆⬆ INDICE ⬆⬆](#INDICE)
 
+***
 
 
 
