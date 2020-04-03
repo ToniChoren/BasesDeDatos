@@ -13,7 +13,7 @@
 
 MySQL es un sistema de gestión de bases de datos de código abierto, que generalmente está instalado como parte de la popular combinación LAMP (Linux, Apache, MySQL, PHP/Python/Perl). Gestiona sus datos usando una base de datos relacional y SQL (Lenguaje de consulta estructurada).
 
-[⬆⬆ INDICE ⬆⬆](#INDICE)
+
 
 ---
 
