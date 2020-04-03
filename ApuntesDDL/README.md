@@ -105,6 +105,9 @@ A la hora de crear tablas, hay que indicar el tipo de datos de cada campo. Neces
 |Lógicos|BOOLEAN o BOOL|
 |Monedas 8 bytes|MONEY|
 
+[⬆⬆ INDICE ⬆⬆](#INDICE)
+
+***
 
 ### 5 Dominios
 Se trata de CREATE DOMAIN:
