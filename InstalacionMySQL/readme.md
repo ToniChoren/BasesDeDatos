@@ -13,6 +13,8 @@
 
 MySQL es un sistema de gestión de bases de datos de código abierto, que generalmente está instalado como parte de la popular combinación LAMP (Linux, Apache, MySQL, PHP/Python/Perl). Gestiona sus datos usando una base de datos relacional y SQL (Lenguaje de consulta estructurada).
 
+[⬆⬆ INDICE ⬆⬆](#INDICE)
+
 ---
 
 # Instalar MySQL <a name="2"></a>
@@ -37,6 +39,8 @@ Ahora instalamos el paquete
 
 Con estos dos pasos ya  tendríamos instaldo  MySQL de forma básica y sencilla.
 
+[⬆⬆ INDICE ⬆⬆](#INDICE)
+
 ---
 
 # Probar MySQL <a name="3"></a>
@@ -52,7 +56,9 @@ Para probarlo escribimos el soguiente comando.
   Si MySQL no se está ejecutando, puede iniciarlo usando sudo systemctl start mysql.
   
     sudo systemctl start mysql
-    
+ 
+ [⬆⬆ INDICE ⬆⬆](#INDICE)
+ 
 ---    
 
 # Desinstalación de MySQL <a name="4"></a>
@@ -83,6 +89,8 @@ La explicación de lo que hicimos:
     — purge : Eliminamos los paquetes y los archivos de configuración.
       remove : desinstala los paquetes.
       autoremove : Fuerza para eliminar los paquetes que se instalaron de forma automatica debido a las necesidades de las dependencias de otros paquetes y ahora ya no son necesarios.
+
+[⬆⬆ INDICE ⬆⬆](#INDICE)
 
 ---
 
@@ -124,6 +132,9 @@ La explicación de lo que hicimos:
  
  ![Alt text](https://github.com/ToniChoren/BasesDeDatos/blob/master/InstalacionMySQL/capturas/capturas%20ubuntu/desc_planteta.PNG)
 
+
+[⬆⬆ INDICE ⬆⬆](#INDICE)
+
 ---
  
  # Creacion Base de datos Proyecto Investigación <a name="6"></a>
@@ -149,6 +160,8 @@ La explicación de lo que hicimos:
  - Y luego para visializar las sentencias escribimos  __show tables__.
  
  ![Alt text](https://github.com/ToniChoren/BasesDeDatos/blob/master/InstalacionMySQL/capturas/capturas%20ubuntu/showTables.PNG)
+
+[⬆⬆ INDICE ⬆⬆](#INDICE)
 
 ***
 
